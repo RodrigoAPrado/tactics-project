@@ -1,0 +1,313 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6508830304827095395
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6508830304827095394}
+  - component: {fileID: 6508830304827095405}
+  - component: {fileID: 1952491393938128721}
+  - component: {fileID: 6508830304827095404}
+  m_Layer: 0
+  m_Name: InputController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6508830304827095394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6508830304827095395}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6508830304827095405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6508830304827095395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e7943406ccc73c4ab67d0725eed34c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1952491393938128721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6508830304827095395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de429d6a9c005dd44bf2bd4e0556d372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6508830304827095404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6508830304827095395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: f6babf7ce7fad9e419c7a9794f614f36, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6508830304827095405}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: Accept
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0579fd87-5725-43d7-99a3-6f199eff158f
+    m_ActionName: Gameplay/Accept
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6508830304827095405}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: Back
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 79aae726-f5a6-4d53-9240-4fa6cb30ba1b
+    m_ActionName: Gameplay/Back
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6508830304827095405}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: EnemyToggle
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: eaded615-0d10-4b1e-8c69-703d5717c22c
+    m_ActionName: Gameplay/EnemyToggle
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6508830304827095405}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: Help
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 63c0410e-3b86-4730-b709-5bd3173f43e8
+    m_ActionName: Gameplay/Help
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6508830304827095405}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: Up
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7b596db4-3af3-4b05-9838-82ba2db3ef4e
+    m_ActionName: Gameplay/Up
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6508830304827095405}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: Down
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 32ce7e16-e2ed-4c11-8997-a48ccce6eac5
+    m_ActionName: Gameplay/Down
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6508830304827095405}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: Left
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bab7557c-0cf3-4a55-96c2-d7e7afbf1626
+    m_ActionName: Gameplay/Left
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6508830304827095405}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: Right
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f87a0f08-94bb-4dd0-bb1a-34c6f70f67c1
+    m_ActionName: Gameplay/Right
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6508830304827095405}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: GameMenu
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a3c72f60-7c7a-4d15-9208-38106c68b41a
+    m_ActionName: Gameplay/GameMenu
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6508830304827095405}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: MapMenu
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7492393e-30b2-49d2-8d34-8c272b1c69b9
+    m_ActionName: Gameplay/MapMenu
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6508830304827095405}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: NextAlly
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e5b989e2-99e8-4dba-a36c-7b1764bd48a4
+    m_ActionName: Gameplay/NextAlly
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6508830304827095405}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: PreviousAlly
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 27ad5bb4-c590-48fb-9925-0935063b1010
+    m_ActionName: Gameplay/PreviousAlly
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6508830304827095405}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: BackInTime
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4462bd1c-cef6-463d-b6fd-87c053a429f0
+    m_ActionName: Gameplay/BackInTime
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6508830304827095405}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: ZoomToggle
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 04703f38-9c51-4c99-8776-d225667f197f
+    m_ActionName: Gameplay/ZoomToggle
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Gameplay
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}

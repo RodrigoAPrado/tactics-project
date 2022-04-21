@@ -1,0 +1,391 @@
+{
+    "mapHeight": 10,
+    "mapWidth": 10,
+    "tileData": [
+        [
+            {
+                "type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            }
+        ],
+        [
+            {
+                "type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            }
+        ],
+        [
+            {
+                "type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            }
+        ],
+        [
+            {
+                "type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            }
+        ],
+        [
+            {
+                "type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            }
+        ],
+        [
+            {
+                "type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            }
+        ],
+        [
+            {
+                "type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            }
+        ],
+        [
+            {
+                "type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            }
+        ],
+        [
+            {
+                "type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            }
+        ],
+        [
+            {
+                "type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            },
+            {
+                "Type": "Plains"
+            }
+        ]
+    ],
+    "playerData" :{
+        "startingPositions":[
+            {
+                "position": {
+                    "x": 4,
+                    "y": 3
+                },
+                "type": "Forced",
+                "directive": "Lord"
+            },
+            {
+                "position": {
+                    "x": 2,
+                    "y": 2
+                },
+                "type": "Selectable"
+            },
+            {
+                "position": {
+                    "x": 3,
+                    "y": 2
+                },
+                "type": "Selectable"
+            },
+            {
+                "position": {
+                    "x": 4,
+                    "y": 2
+                },
+                "type": "Selectable"
+            },
+            {
+                "position": {
+                    "x": 3,
+                    "y": 1
+                },
+                "type": "Selectable"
+            },
+            {
+                "position": {
+                    "x": 4,
+                    "y": 1
+                },
+                "type": "Selectable"
+            }
+        ]
+    },
+    "enemyData" :{
+        "startingPositions": [
+            {
+                "position": {
+                    "x": 2,
+                    "y": 4
+                },
+                ""
+                
+            },
+            {
+                "position": {
+                    "x": 2,
+                    "y": 5
+                }
+            }
+        ]
+    }
+}
