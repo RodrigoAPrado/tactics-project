@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Tactics.Domain.Map;
 
-namespace Tactics.Controller.Test {
-    public class GridBuilder : MonoBehaviour
+namespace Tactics.Controller.Stage {
+    public class DebugStageController : BaseStageController
     {
         [SerializeField]
         private int width;
@@ -14,7 +15,7 @@ namespace Tactics.Controller.Test {
         [SerializeField]
         private GameObject tilePrefab;
 
-        private void Awake() {
+        public override void Init() {
             this.transform.position = new Vector2(0,0);
             for(int x = 0; x < width; x++) {
                 for (int y = 0; y < height; y++) {
@@ -22,7 +23,15 @@ namespace Tactics.Controller.Test {
                     tile.transform.position = new Vector2(x, y);
                     tile.transform.SetParent(this.transform);
                 }
-            }        
+            }       
+        }
+
+        public override UnitData SelectUnit() {
+            return null;
+        }
+
+        public override Vector2 GetSize() {
+            return new Vector2(width, height);
         }
     }
 }

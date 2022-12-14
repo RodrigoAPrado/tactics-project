@@ -3,21 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using Tactics.Manager;
 using Tactics.Manager.PlayerInput;
+using Tactics.Controller.Stage;
 
 namespace Tactics.Controller.Scene {
-    
+
     public class GameMapSceneController : BaseSceneController
     {
 
         [field:SerializeField] private MapSceneCameraController Camera { get; set; }
-        [field:SerializeField] private GridSelectorController Selector { get; set; }
+        [field:SerializeField] private BaseStageController Stage { get; set; }
 
         private GameStateManager GameState { get; set; }
         private GameMapSceneContext Context { get; set; }
 
         protected override void Awake() {
             base.Awake();
-            Context = new GameMapSceneContext(Selector, Camera);
+            Stage.Init();
+            Camera.Init(Stage);
+
+            Context = new GameMapSceneContext(Camera, Stage);
             GameState =  new GameStateManager(Context);
         }
 
@@ -28,12 +32,12 @@ namespace Tactics.Controller.Scene {
 
     public class GameMapSceneContext {
 
-        public GridSelectorController Selector { get; }
-        public MapSceneCameraController Camera { get ;}
+        public MapSceneCameraController Camera { get; }
+        public BaseStageController Stage { get; }
 
-        public GameMapSceneContext(GridSelectorController selector, MapSceneCameraController camera) {
-            Selector = selector;
+        public GameMapSceneContext(MapSceneCameraController camera, BaseStageController stage) {
             Camera = camera;
+            Stage = stage;
         }
     }
 }

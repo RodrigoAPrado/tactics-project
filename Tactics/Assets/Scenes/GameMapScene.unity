@@ -329,6 +329,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42373593dadf6e844ba2e0054995a45a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <HorizontalLimitDelta>k__BackingField: 6
+  <VerticalLimitDelta>k__BackingField: 3
   cameraPositionDelta: 0
 --- !u!1 &1336866091
 GameObject:
@@ -515,7 +517,7 @@ GameObject:
   - component: {fileID: 1874486677}
   - component: {fileID: 1874486678}
   m_Layer: 0
-  m_Name: GridBuilder
+  m_Name: StageController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -544,11 +546,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1874486676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00c147847ff9f4146a93fbf7cdf85024, type: 3}
+  m_Script: {fileID: 11500000, guid: c2fad7547bcd6674baea9fa2692cb3b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 16
-  height: 16
+  width: 20
+  height: 20
   tilePrefab: {fileID: 3817839468024542200, guid: 7928dec5a73ec47498827de490072027, type: 3}
 --- !u!1 &1972009324
 GameObject:
@@ -596,6 +598,7 @@ MonoBehaviour:
   <InputController>k__BackingField: {fileID: 91346336}
   <Camera>k__BackingField: {fileID: 1292350544}
   <Selector>k__BackingField: {fileID: 951857623}
+  <Stage>k__BackingField: {fileID: 1874486678}
 --- !u!1 &2133016880
 GameObject:
   m_ObjectHideFlags: 0

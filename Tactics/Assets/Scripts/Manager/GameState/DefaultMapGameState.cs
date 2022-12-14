@@ -1,5 +1,7 @@
 using System;
 using Tactics.Controller.Scene;
+using Tactics.Domain.Map;
+using UnityEngine;
 
 namespace Tactics.Manager.GameState {
     public class DefaultMapGameState : BaseGameState {
@@ -9,24 +11,52 @@ namespace Tactics.Manager.GameState {
 
         }
 
+        public override void Init()
+        {
+            //TODO: Verificar se precisa de inicialização.
+        }
+
+        public override void OnAccept()
+        {
+            var selectedUnit = Context.Stage.SelectUnit();
+            if(selectedUnit == null) {
+
+            } else {
+                switch(selectedUnit.ArmyType) {
+                    case UnitArmyType.Player:
+                        //TODO: Avançar para estado de unidade jogável selecionada;
+                    break;
+                    case UnitArmyType.Enemy:
+                        //TODO: Ativar zona de avanço do inimigo;
+                    break;
+                    case UnitArmyType.Ally:
+                        //TODO: Mesma coisa que selecionar bloco vazio;
+                    break;
+                    case UnitArmyType.Other:
+                        //TODO: kMesma coisa que selecionar bloco vazio;
+                    break;
+                }
+            }
+        }
+
         public override void OnDirectionalDown() {
-            Context.Selector.Move(0, -1);
-            Context.Camera.MoveCamTo(Context.Selector.SelectorPosition);
+            Context.Stage.MoveSelectorDown();
+            Context.Camera.MoveCamTo(Context.Stage.SelectorPosition());
         }
         
         public override void OnDirectionalLeft() {
-            Context.Selector.Move(-1, 0);
-            Context.Camera.MoveCamTo(Context.Selector.SelectorPosition);
+            Context.Stage.MoveSelectorLeft();
+            Context.Camera.MoveCamTo(Context.Stage.SelectorPosition());
         }
 
         public override void OnDirectionalRight() {
-            Context.Selector.Move(1, 0);
-            Context.Camera.MoveCamTo(Context.Selector.SelectorPosition);
+            Context.Stage.MoveSelectorRight();
+            Context.Camera.MoveCamTo(Context.Stage.SelectorPosition());
         }
 
         public override void OnDirectionalUp() {
-            Context.Selector.Move(0, 1);
-            Context.Camera.MoveCamTo(Context.Selector.SelectorPosition);
+            Context.Stage.MoveSelectorUp();
+            Context.Camera.MoveCamTo(Context.Stage.SelectorPosition());
         }
     }
 }

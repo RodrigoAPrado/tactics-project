@@ -11,6 +11,10 @@ namespace Tactics.Manager.GameState {
             Context = context;
         }
 
+        public virtual void Init() {
+            Debug.Log("Initialization not implemented!");
+        }
+
         public virtual void OnAccept() {
             Debug.Log("Accept being pressed, but not implemented!");
         } 
