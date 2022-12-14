@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Tactics.Controller.Scene;
 
@@ -6,13 +8,16 @@ namespace Tactics.Manager.GameState {
     public abstract class BaseGameState {
         
         protected GameMapSceneContext Context { get; set; }
-        
-        protected BaseGameState (GameMapSceneContext context) {
+        protected GameStateManager GameStateManager { get; set; }
+
+        protected BaseGameState (GameMapSceneContext context, GameStateManager gameStateManager) {
             Context = context;
+            GameStateManager = gameStateManager;
         }
 
-        public virtual void Init() {
+        public virtual BaseGameState Init() {
             Debug.Log("Initialization not implemented!");
+            return this;
         }
 
         public virtual void OnAccept() {

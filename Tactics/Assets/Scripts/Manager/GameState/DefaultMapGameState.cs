@@ -6,21 +6,21 @@ using UnityEngine;
 namespace Tactics.Manager.GameState {
     public class DefaultMapGameState : BaseGameState {
         
-        public DefaultMapGameState(GameMapSceneContext context) : base(context)
+        public DefaultMapGameState(GameMapSceneContext context, GameStateManager gameStateManager) : base(context, gameStateManager)
         {
 
         }
 
-        public override void Init()
+        public override BaseGameState Init()
         {
-            //TODO: Verificar se precisa de inicialização.
+            return this;
         }
 
         public override void OnAccept()
         {
             var selectedUnit = Context.Stage.SelectUnit();
             if(selectedUnit == null) {
-
+                GameStateManager.Push(new MenuGameState(Context, GameStateManager).Init());
             } else {
                 switch(selectedUnit.ArmyType) {
                     case UnitArmyType.Player:

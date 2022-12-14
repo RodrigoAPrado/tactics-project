@@ -20,5 +20,13 @@ namespace Tactics.Controller {
         public void MoveTo(int x, int y) {
             //TODO: Move to specific place in grid.
         }
+
+        public void Hide() {
+            gameObject.SetActive(false);
+        }
+
+        public void Show() {
+            gameObject.SetActive(true);
+        }
     }
 }

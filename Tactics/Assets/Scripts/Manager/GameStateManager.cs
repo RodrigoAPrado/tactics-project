@@ -18,8 +18,15 @@ namespace Tactics.Manager {
         public GameStateManager(GameMapSceneContext context) {
             Context = context;
             StateStack = new Stack<BaseGameState>();
-            StateStack.Push(new DefaultMapGameState(Context));
-            CurrentState.Init();
+            StateStack.Push(new DefaultMapGameState(Context, this).Init());
+        }
+
+        public void Pop() {
+            StateStack.Pop();
+        }
+
+        public void Push(BaseGameState state) {
+            StateStack.Push(state);
         }
 
         public void DoCommand(PlayerInputButton button) {

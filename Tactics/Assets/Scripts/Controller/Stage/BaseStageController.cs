@@ -41,5 +41,13 @@ namespace Tactics.Controller.Stage {
         public virtual Vector2 SelectorPosition() {
             return Selector.SelectorPosition;
         }
+
+        public void HideSelector() {
+            Selector.Hide();
+        }
+
+        public void ShowSelector() {
+            Selector.Show();
+        }
     }
 }
