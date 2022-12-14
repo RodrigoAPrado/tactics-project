@@ -18,7 +18,7 @@ namespace Tactics.Controller {
         }
 
         private void BuildStageTiles() {
-            var tileset = GameObject.FindObjectsOfType<TileObject>();   
+            var tileset = GameObject.FindObjectsOfType<TileObject>();
             var highestY = -1;
             var highestX = -1;
             foreach(TileObject tile in tileset) {

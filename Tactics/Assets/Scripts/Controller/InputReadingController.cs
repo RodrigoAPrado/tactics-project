@@ -14,8 +14,8 @@ namespace Tactics.Controller {
         private InputProcessingController Processor { get; set; }
 
         private void Awake() {
-            PlayerInput = gameObject.GetComponent<PlayerInput>(); 
-            Processor = gameObject.GetComponent<InputProcessingController>(); 
+            PlayerInput = gameObject.GetComponent<PlayerInput>();
+            Processor = gameObject.GetComponent<InputProcessingController>();
         }
 
         public void DetectController() {
@@ -25,37 +25,37 @@ namespace Tactics.Controller {
         #region DPad    
         public void Down(InputAction.CallbackContext context) {
             if(context.started)
-                Processor.ProcessPressInput(PlayerInputButton.Down);
+                Processor.ProcessDirectionalPressInput(PlayerInputButton.Down);
             if(context.performed)
-                Debug.Log("[InputController.Down] Hold!");
-            if(context.canceled)    
-                Debug.Log("[InputController.Down] Canceled!");
+                Processor.ProcessHoldInput(PlayerInputButton.Down);
+            if(context.canceled)
+                Processor.ProcessCancelInput(PlayerInputButton.Down);
 
         }
 
         public void Left(InputAction.CallbackContext context) {
             if(context.started)
-                Processor.ProcessPressInput(PlayerInputButton.Left);
+                Processor.ProcessDirectionalPressInput(PlayerInputButton.Left);
             if(context.performed)
-                Debug.Log("[InputController.Left] Hold!");
+                Processor.ProcessHoldInput(PlayerInputButton.Left);
             if(context.canceled)
-                Debug.Log("[InputController.Left] Canceled!");
+                Processor.ProcessCancelInput(PlayerInputButton.Left);
         }
         public void Right(InputAction.CallbackContext context) {
             if(context.started)
-                Processor.ProcessPressInput(PlayerInputButton.Right);
+                Processor.ProcessDirectionalPressInput(PlayerInputButton.Right);
             if(context.performed)
-                Debug.Log("[InputController.Right] Hold!");
+                Processor.ProcessHoldInput(PlayerInputButton.Right);
             if(context.canceled)
-                Debug.Log("[InputController.Right] Canceled!");
+                Processor.ProcessCancelInput(PlayerInputButton.Right);
         }
         public void Up(InputAction.CallbackContext context) {
             if(context.started)
-                Processor.ProcessPressInput(PlayerInputButton.Up);
+                Processor.ProcessDirectionalPressInput(PlayerInputButton.Up);
             if(context.performed)
-                Debug.Log("[InputController.Up] Hold!");
+                Processor.ProcessHoldInput(PlayerInputButton.Up);
             if(context.canceled)
-                Debug.Log("[InputController.Up] Canceled!");
+                Processor.ProcessCancelInput(PlayerInputButton.Up);
         }
         #endregion
 
@@ -67,7 +67,7 @@ namespace Tactics.Controller {
         }
 
         //B - Circle
-        public void Back(InputAction.CallbackContext context) {    
+        public void Back(InputAction.CallbackContext context) {
             if(context.performed)
                 Processor.ProcessPressInput(PlayerInputButton.Back);
         }
