@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Tactics.Manager;
 using Tactics.Manager.PlayerInput;
-using Tactics.Controller.Stage;
+using Tactics.Controller.Board;
 using Tactics.Controller.Menu;
+using Tactics.Controller;
 
 namespace Tactics.Controller.Scene {
 
@@ -12,8 +13,10 @@ namespace Tactics.Controller.Scene {
     {
 
         [field:SerializeField] private MapSceneCameraController Camera { get; set; }
-        [field:SerializeField] private BaseStageController Stage { get; set; }
+        [field:SerializeField] private BaseBoardController Board { get; set; }
         [field:SerializeField] private MenuController Menu { get; set; }
+
+        [field:SerializeField] private UnitModalController UnitModal { get; set; }
 
         private GameStateManager GameState { get; set; }
         private GameMapSceneContext Context { get; set; }
@@ -21,10 +24,11 @@ namespace Tactics.Controller.Scene {
         protected override void Awake() {
             base.Awake();
             Menu.Init();
-            Stage.Init();
-            Camera.Init(Stage);
+            Board.Init();
+            UnitModal.Init(Board);
+            Camera.Init(Board);
 
-            Context = new GameMapSceneContext(Camera, Stage, Menu);
+            Context = new GameMapSceneContext(Camera, Board, Menu);
             GameState =  new GameStateManager(Context);
         }
 
@@ -36,12 +40,12 @@ namespace Tactics.Controller.Scene {
     public class GameMapSceneContext {
 
         public MapSceneCameraController Camera { get; }
-        public BaseStageController Stage { get; }
+        public BaseBoardController Board { get; }
         public MenuController Menu { get; }
 
-        public GameMapSceneContext(MapSceneCameraController camera, BaseStageController stage, MenuController menu) {
+        public GameMapSceneContext(MapSceneCameraController camera, BaseBoardController board, MenuController menu) {
             Camera = camera;
-            Stage = stage;
+            Board = board;
             Menu = menu;
         }
     }

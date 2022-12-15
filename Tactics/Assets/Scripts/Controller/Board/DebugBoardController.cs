@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Tactics.Domain.Map;
 
-namespace Tactics.Controller.Stage {
-    public class DebugStageController : BaseStageController
+namespace Tactics.Controller.Board {
+    public class DebugBoardController : BaseBoardController
     {
         [SerializeField]
         private int width;
@@ -23,7 +23,7 @@ namespace Tactics.Controller.Stage {
                     tile.transform.position = new Vector2(x, y);
                     tile.transform.SetParent(this.transform);
                 }
-            }       
+            }
         }
 
         public override UnitData SelectUnit() {

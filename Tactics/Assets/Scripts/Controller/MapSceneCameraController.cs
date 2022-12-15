@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using Tactics.Controller.Stage;
+using Tactics.Controller.Board;
 
 namespace Tactics.Controller {
     public class MapSceneCameraController : MonoBehaviour
@@ -24,7 +24,7 @@ namespace Tactics.Controller {
 
         private Tween Tween { get; set; }
 
-        public void Init(BaseStageController stage) {
+        public void Init(BaseBoardController stage) {
             var stageSize = stage.GetSize();
             LeftLimit = HorizontalLimitDelta;
             DownLimit = VerticalLimitDelta;

@@ -18,7 +18,7 @@ namespace Tactics.Manager.GameState {
 
         public override void OnAccept()
         {
-            var selectedUnit = Context.Stage.SelectUnit();
+            var selectedUnit = Context.Board.SelectUnit();
             if(selectedUnit == null) {
                 GameStateManager.Push(new MenuGameState(Context, GameStateManager).Init());
             } else {
@@ -39,24 +39,29 @@ namespace Tactics.Manager.GameState {
             }
         }
 
-        public override void OnDirectionalDown() {
-            Context.Stage.MoveSelectorDown();
-            Context.Camera.MoveCamTo(Context.Stage.SelectorPosition());
+        public override void OnMapMenu()
+        {
+            GameStateManager.Push(new MenuGameState(Context, GameStateManager).Init());
         }
-        
+
+        public override void OnDirectionalDown() {
+            Context.Board.MoveSelectorDown();
+            Context.Camera.MoveCamTo(Context.Board.SelectorPosition());
+        }
+
         public override void OnDirectionalLeft() {
-            Context.Stage.MoveSelectorLeft();
-            Context.Camera.MoveCamTo(Context.Stage.SelectorPosition());
+            Context.Board.MoveSelectorLeft();
+            Context.Camera.MoveCamTo(Context.Board.SelectorPosition());
         }
 
         public override void OnDirectionalRight() {
-            Context.Stage.MoveSelectorRight();
-            Context.Camera.MoveCamTo(Context.Stage.SelectorPosition());
+            Context.Board.MoveSelectorRight();
+            Context.Camera.MoveCamTo(Context.Board.SelectorPosition());
         }
 
         public override void OnDirectionalUp() {
-            Context.Stage.MoveSelectorUp();
-            Context.Camera.MoveCamTo(Context.Stage.SelectorPosition());
+            Context.Board.MoveSelectorUp();
+            Context.Camera.MoveCamTo(Context.Board.SelectorPosition());
         }
     }
 }

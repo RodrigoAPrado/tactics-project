@@ -1,12 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Tactics.Domain.Map;
+using Tactics.Domain.Interface.Board;
 
-namespace Tactics.Controller.Stage {
-    public abstract class BaseStageController : MonoBehaviour
+
+namespace Tactics.Controller.Board {
+    public abstract class BaseBoardController : MonoBehaviour
     {
         [field:SerializeField] protected GridSelectorController Selector { get; set; }
+
+        public virtual ITileDomain SelectedTile => null;
 
         public abstract void Init();
 
@@ -19,7 +24,7 @@ namespace Tactics.Controller.Stage {
                 return;
             Selector.Move(0, -1);
         }
-        
+
         public virtual void MoveSelectorLeft() {
             if(Selector.SelectorPosition.x <=0 )
                 return;
@@ -48,6 +53,10 @@ namespace Tactics.Controller.Stage {
 
         public void ShowSelector() {
             Selector.Show();
+        }
+
+        public void SubscribeToSelector(Action action) {
+            Selector.SubscribeToMovement(action);
         }
     }
 }

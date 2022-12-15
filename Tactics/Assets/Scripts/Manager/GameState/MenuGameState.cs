@@ -12,7 +12,7 @@ namespace Tactics.Manager.GameState {
 
         public override BaseGameState Init()
         {
-            Context.Stage.HideSelector();
+            Context.Board.HideSelector();
             Context.Menu.Show();
             return this;
         }
@@ -32,7 +32,7 @@ namespace Tactics.Manager.GameState {
         }
 
         private void CloseMenu() {
-            Context.Stage.ShowSelector();
+            Context.Board.ShowSelector();
             Context.Menu.Hide();
             GameStateManager.Pop();
         }
