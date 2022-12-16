@@ -1,0 +1,12 @@
+{
+    "units" : [
+        {
+            "startingPosition" : {
+                "x": 1,
+                "y": 1
+            },
+            "unitClass": 0,
+            "armyType": 0
+        }
+    ]
+}

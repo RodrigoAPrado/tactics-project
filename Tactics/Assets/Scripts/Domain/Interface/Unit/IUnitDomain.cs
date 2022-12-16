@@ -1,6 +1,6 @@
 namespace Tactics.Domain.Interface.Unit {
     public interface IUnitDomain {
-        MoveType MovementType { get; set; }
+        MoveType MovementType { get; }
     }
 
     public enum MoveType {
@@ -15,5 +15,12 @@ namespace Tactics.Domain.Interface.Unit {
         Magic = 8,
         Almighty = 9,
         Monster = 10
+    }
+
+    public enum ArmyType {
+        Player = 0,
+        Enemy = 1,
+        Ally = 2,
+        Other = 3
     }
 }
