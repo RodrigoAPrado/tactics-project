@@ -5,9 +5,9 @@
                 "x": 1,
                 "y": 1
             },
-            "unitClass": 99,
+            "unitClass": 2,
             "armyType": 0,
-            "unitResource": 0,
+            "unitResource": 1,
             "armyId": 0,
             "affinity": 0,
             "gainedStats" : {
@@ -29,13 +29,13 @@
                 "x": 3,
                 "y": 3
             },
-            "unitClass": 99,
+            "unitClass": 0,
             "armyType": 0,
             "unitResource": 0,
             "armyId": 0,
             "affinity": 0,
             "gainedStats" : {
-                "hitPoints":5,
+                "hitPoints":7,
                 "strength":2,
                 "magic":0,
                 "skill":4,

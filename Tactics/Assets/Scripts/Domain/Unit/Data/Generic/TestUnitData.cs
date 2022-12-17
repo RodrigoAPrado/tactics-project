@@ -7,10 +7,10 @@ namespace Tactics.Domain.Unit.Data.Generic {
         public override string Name => "Test";
         public override MoveType MoveType => MoveType.Almighty;
         public override UnitClass UnitClass => UnitClass.Test;
-        protected override IUnitStats BaseStats => FencerBaseStats;
-        protected override IUnitStats StatGrowhts => FencerStatGrowths;
-        protected override IUnitStats MaxStats => PhysicalBaseClassMaxStats;
-        protected override IUnitStats PromotionGains => BaseClassPromotionGains;
+        public override IUnitStats BaseStats => FencerBaseStats;
+        public override IUnitStats StatGrowhts => FencerStatGrowths;
+        public override IUnitStats MaxStats => PhysicalBaseClassMaxStats;
+        public override IUnitStats PromotionGains => BaseClassPromotionGains;
         public override UnitClass PromotionClass => UnitClass.None;
         public override IList<WeaponType> AvailableWeapons => FencerWeapons;
         private static IUnitStats FencerBaseStats { get; } =

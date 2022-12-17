@@ -59,10 +59,10 @@ namespace Tactics.Domain.Unit.Data.Base {
         public abstract UnitClass PromotionClass { get; }
         public abstract IList<WeaponType> AvailableWeapons { get; }
 
-        protected abstract IUnitStats BaseStats { get; }
-        protected abstract IUnitStats StatGrowhts { get; }
-        protected abstract IUnitStats MaxStats { get; }
-        protected abstract IUnitStats PromotionGains { get; }
+        public abstract IUnitStats BaseStats { get; }
+        public abstract IUnitStats StatGrowhts { get; }
+        public abstract IUnitStats MaxStats { get; }
+        public abstract IUnitStats PromotionGains { get; }
 
         protected static IUnitStats BaseClassPromotionGains { get; } =
             new UnitStats(

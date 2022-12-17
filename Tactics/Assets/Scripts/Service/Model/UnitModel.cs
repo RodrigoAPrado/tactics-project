@@ -43,17 +43,17 @@ namespace Tactics.Service.Model {
     }
 
     public class UnitStatsModel {
-        int hitPoints { get; }
-        int strength { get; }
-        int magic { get; }
-        int skill { get; }
-        int speed { get; }
-        int luck { get; }
-        int defense { get; }
-        int resistance { get; }
-        int weight { get; }
-        int move { get; }
-        int constitution { get; }
+        public int hitPoints { get; set; }
+        public int strength { get; set; }
+        public int magic { get; set; }
+        public int skill { get; set; }
+        public int speed { get; set; }
+        public int luck { get; set; }
+        public int defense { get; set; }
+        public int resistance { get; set; }
+        public int weight { get; set; }
+        public int move { get; set; }
+        public int constitution { get; set; }
 
         public IUnitStats ToDomain() {
             return new UnitStats(hitPoints, strength, magic, 
