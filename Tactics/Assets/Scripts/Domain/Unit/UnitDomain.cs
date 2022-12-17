@@ -48,7 +48,12 @@ namespace Tactics.Domain.Unit{
         }
 
         public void AddTileBelowUnit(ITileDomain tile) {
+            if(!tile.Empty) {
+                return;
+            }
+            TileBelowUnit.RemoveUnitFromTile();
             TileBelowUnit = tile;
+            TileBelowUnit.AddUnitOnTile(this);
         }
     }
 }

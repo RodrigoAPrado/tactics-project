@@ -13,6 +13,7 @@ namespace Tactics.Domain.Interface.Board
         int CursorYPosition { get; }
         void Init();
         bool MoveCursorPosition(int x, int y);
+        bool MoveCursorToSpecificPosition(ITileDomain tile);
         ITileDomain GetTileOnPosition(int x, int y);
         ITileDomain GetTileById(Guid id);
     }

@@ -5,7 +5,31 @@
                 "x": 1,
                 "y": 1
             },
-            "unitClass": 0,
+            "unitClass": 99,
+            "armyType": 0,
+            "unitResource": 0,
+            "armyId": 0,
+            "affinity": 0,
+            "gainedStats" : {
+                "hitPoints":5,
+                "strength":2,
+                "magic":0,
+                "skill":4,
+                "speed":4,
+                "luck":3,
+                "defense":2,
+                "resistance":0
+            },
+            "weaponExp" : {
+                "0" : 0
+            }
+        },
+        {
+            "startingPosition" : {
+                "x": 3,
+                "y": 3
+            },
+            "unitClass": 99,
             "armyType": 0,
             "unitResource": 0,
             "armyId": 0,

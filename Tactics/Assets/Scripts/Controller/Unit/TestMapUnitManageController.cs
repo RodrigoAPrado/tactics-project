@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Tactics.Service;
@@ -28,6 +29,11 @@ namespace Tactics.Controller.Unit {
                 unitController.Init(unit);
                 UnitControllers.Add(unitController);
             }
+        }
+
+        public void MoveUnit(IUnitDomain unit, ITileDomain tile, Action callback, bool instant = false) {
+            var unitController = UnitControllers.Find(o => o.Id == unit.Id);
+            unitController.MoveTo(tile, callback, instant);
         }
 
     }

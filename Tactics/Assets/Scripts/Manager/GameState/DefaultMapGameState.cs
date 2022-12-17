@@ -14,6 +14,8 @@ namespace Tactics.Manager.GameState {
 
         public override BaseGameState Init()
         {
+            Context.Board.ClearHighlights();
+            Context.Board.ShowSelector();
             return this;
         }
 

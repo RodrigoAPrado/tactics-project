@@ -63,6 +63,12 @@ namespace Tactics.Domain.Board {
             return true;
         }
 
+        public bool MoveCursorToSpecificPosition(ITileDomain tile) {
+            CursorYPosition = tile.Position.Y;
+            CursorXPosition = tile.Position.X;
+            return true;
+        }
+
         public ITileDomain GetTileOnPosition(int x, int y) {
 
             if(y < 0 || y >= _boardRow.Count)

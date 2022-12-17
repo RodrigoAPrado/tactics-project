@@ -17,7 +17,7 @@ namespace Tactics.Controller.Scene {
         [field:SerializeField] private TestMapBoardController Board { get; set; }
         [field:SerializeField] private TestMapUnitManageController Units { get; set; }
         [field:SerializeField] private MenuController Menu { get; set; }
-
+        [field:SerializeField] private MenuController UnitMenu { get; set; }
         [field:SerializeField] private UnitModalController UnitModal { get; set; }
 
         private GameStateManager GameState { get; set; }
@@ -26,12 +26,13 @@ namespace Tactics.Controller.Scene {
         protected override void Awake() {
             base.Awake();
             Menu.Init();
+            UnitMenu.Init();
             Board.Init();
             Units.Init(Board.Board);
             UnitModal.Init(Board);
             Camera.Init(Board);
 
-            Context = new GameMapSceneContext(Camera, Board, Menu);
+            Context = new GameMapSceneContext(Camera, Board, Menu, UnitMenu, Units);
             GameState =  new GameStateManager(Context);
         }
 
@@ -44,12 +45,16 @@ namespace Tactics.Controller.Scene {
 
         public MapSceneCameraController Camera { get; }
         public TestMapBoardController Board { get; }
+        public TestMapUnitManageController Units { get; }
         public MenuController Menu { get; }
+        public MenuController UnitMenu { get; }
 
-        public GameMapSceneContext(MapSceneCameraController camera, TestMapBoardController board, MenuController menu) {
+        public GameMapSceneContext(MapSceneCameraController camera, TestMapBoardController board, MenuController menu, MenuController unitMenu, TestMapUnitManageController units) {
             Camera = camera;
             Board = board;
             Menu = menu;
+            Units = units;
+            UnitMenu = unitMenu;
         }
     }
 }

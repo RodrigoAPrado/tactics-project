@@ -19,6 +19,7 @@ namespace Tactics.Manager.GameState {
 
         public override BaseGameState Init()
         {
+            Context.Board.ShowSelector();
             return this;
         }
 
@@ -26,8 +27,16 @@ namespace Tactics.Manager.GameState {
         public override void OnAccept() {
             var targetTile = Tiles.Find(o => o.TileId == Context.Board.SelectedTile.Id);
             if(targetTile != null) {
-                GameStateManager.Replace(new BuildUnitMovementGameState(Context, GameStateManager, Unit, Tiles, targetTile));
+                if(targetTile.CanStay)
+                   GameStateManager.Replace(new BuildUnitMovementGameState(Context, GameStateManager, Unit, Tiles, targetTile));
             }
+        }
+
+        public override void OnBack()
+        {   
+            Context.Board.MoveSelectorTo(Unit.TileBelowUnit);
+            Context.Camera.MoveCamTo(new Vector2(Unit.TileBelowUnit.Position.X, Unit.TileBelowUnit.Position.Y));
+            GameStateManager.Replace(new DefaultMapGameState(Context, GameStateManager));
         }
     }
 }

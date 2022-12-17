@@ -28,7 +28,11 @@ namespace Tactics.Controller.Menu {
         Guide = 1,
         Options = 2,
         BattleSave = 3,
-        End = 4
+        End = 4,
+        Attack = 5,
+        Items = 6,
+        Trade = 7,
+        Wait = 8
     }
 
 }

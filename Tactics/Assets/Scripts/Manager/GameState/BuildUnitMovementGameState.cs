@@ -27,8 +27,10 @@ namespace Tactics.Manager.GameState {
 
             do {
                 tileDomainList.Add(Context.Board.Board.GetTileById(currentTile.TileId));
-                currentTile = TargetTile.PreviousTile;
+                currentTile = currentTile.PreviousTile;
             } while(currentTile != null);
+
+            GameStateManager.Replace(new ExecuteUnitMovementGameState(Context, GameStateManager, Unit, Tiles, tileDomainList));
 
             return this;
         }

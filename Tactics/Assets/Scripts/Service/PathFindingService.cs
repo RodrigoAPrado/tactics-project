@@ -69,6 +69,7 @@ namespace Tactics.Service {
     }
 
     public class AvailableTile {
+        public bool CanStay => Interaction == TileMoveInteraction.CanStay;
         public AvailableTile PreviousTile { get; private set; }
         public Guid TileId { get; private set; }
         public TileMoveInteraction Interaction { get; private set; }

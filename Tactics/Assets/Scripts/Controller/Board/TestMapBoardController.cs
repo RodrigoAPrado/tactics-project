@@ -66,6 +66,17 @@ namespace Tactics.Controller.Board {
                 Selector.MoveTo(Board.CursorXPosition, Board.CursorYPosition);
         }
 
+        public void MoveSelectorTo(ITileDomain tile) {
+            if(Board.MoveCursorToSpecificPosition(tile))
+                Selector.MoveTo(Board.CursorXPosition, Board.CursorYPosition);
+        }
+        
+        public void ClearHighlights() {
+            foreach(var tile in TileControllers) {
+                tile.Clear();
+            }
+        }
+
         public override void HighLightTile(AvailableTile tile)
         {
             var tileController = TileControllers.Find(o => o.Id == tile.TileId);
