@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Tactics.Domain.Map;
 using Tactics.Domain.Interface.Board;
+using Tactics.Domain.Interface.Unit;
 
 
 namespace Tactics.Controller.Board {
@@ -17,7 +18,7 @@ namespace Tactics.Controller.Board {
 
         public abstract Vector2 GetSize();
 
-        public abstract UnitData SelectUnit();
+        public abstract IUnitDomain SelectUnit();
 
         public virtual void MoveSelectorDown() {
             if(Selector.SelectorPosition.y <=0 )

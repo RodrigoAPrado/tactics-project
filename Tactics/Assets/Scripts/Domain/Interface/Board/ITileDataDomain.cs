@@ -3,6 +3,7 @@ using Tactics.Domain.Interface.Unit;
 
 namespace Tactics.Domain.Interface.Board {
     public interface ITileDataDomain {
+        bool UnitsCanStay { get; }
         bool Disabled { get; }
         bool Destroyable { get; }
         int DefenseBonus { get; }

@@ -1,6 +1,7 @@
 using System;
 using Tactics.Controller.Scene;
 using Tactics.Domain.Map;
+using Tactics.Domain.Interface.Unit;
 using UnityEngine;
 
 namespace Tactics.Manager.GameState {
@@ -23,16 +24,19 @@ namespace Tactics.Manager.GameState {
                 GameStateManager.Push(new MenuGameState(Context, GameStateManager).Init());
             } else {
                 switch(selectedUnit.ArmyType) {
-                    case UnitArmyType.Player:
-                        //TODO: Avançar para estado de unidade jogável selecionada;
+                    case ArmyType.Player:
+                        if(selectedUnit.CurrentState == UnitState.Ready)
+                            GameStateManager.Push(new PrepareUnitMovementGameState(Context, GameStateManager, selectedUnit));
+                        else
+                            GameStateManager.Push(new MenuGameState(Context, GameStateManager).Init());
                     break;
-                    case UnitArmyType.Enemy:
+                    case ArmyType.Enemy:
                         //TODO: Ativar zona de avanço do inimigo;
                     break;
-                    case UnitArmyType.Ally:
+                    case ArmyType.Ally:
                         //TODO: Mesma coisa que selecionar bloco vazio;
                     break;
-                    case UnitArmyType.Other:
+                    case ArmyType.Other:
                         //TODO: kMesma coisa que selecionar bloco vazio;
                     break;
                 }

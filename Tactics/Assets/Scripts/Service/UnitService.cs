@@ -1,8 +1,9 @@
-using Tactics.Domain;
+using System.Collections.Generic;
 using Tactics.Util;
 using Newtonsoft.Json;
 using Tactics.Service.Model;
 using Tactics.Domain.Interface.Board;
+using Tactics.Domain.Interface.Unit;
 
 namespace Tactics.Service {
     public class UnitService
@@ -23,10 +24,10 @@ namespace Tactics.Service {
             
         }
 
-        public object GetTestBoard() {
+        public List<IUnitDomain> GetTestBoard(IBoardDomain board) {
             var unitJson = FileReaderUtil.ReadFile(_unitFilePath, _testUnitName);
             var unitModel = JsonConvert.DeserializeObject<UnitSetModel>(unitJson);
-            return unitModel;
+            return unitModel.ToDomain(board);
         }
     }
 }

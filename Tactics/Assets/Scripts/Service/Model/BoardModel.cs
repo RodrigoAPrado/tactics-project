@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Tactics.Domain.Interface.Board;
 using Tactics.Domain.Board;
 using Tactics.Domain.Board.Tile;
+using Tactics.Domain.Factory;
 
 namespace Tactics.Service.Model {
     public class BoardModel {
@@ -14,9 +15,10 @@ namespace Tactics.Service.Model {
 
         private List<ITileRowDomain> GetTileMatrix() {
             var tileMatrix = new List<ITileRowDomain>();
-            
+            var y = 0;
             foreach(var tile in tileSet) {
-                tileMatrix.Add(tile.ToDomain());
+                tileMatrix.Add(tile.ToDomain(y));
+                y++;
             }
 
             return tileMatrix;
@@ -28,14 +30,16 @@ namespace Tactics.Service.Model {
 
         public List<TileModel> tileRowSet { get; set; }
 
-        public ITileRowDomain ToDomain() {
-            return new TileRowDomain(GetTileRow());
+        public ITileRowDomain ToDomain(int y) {
+            return new TileRowDomain(GetTileRow(y));
         }
 
-        private List<ITileDomain> GetTileRow() {
+        private List<ITileDomain> GetTileRow(int y) {
             var row = new List<ITileDomain>();
+            var x = 0;
             foreach(var tile in tileRowSet) {
-                row.Add(tile.ToDomain());
+                row.Add(tile.ToDomain(x, y));
+                x++;
             }
 
             return row;
@@ -49,11 +53,11 @@ namespace Tactics.Service.Model {
         public bool playerSpawn { get; set; }
         public bool disabled { get; set; }
 
-        public ITileDomain ToDomain() {
+        public ITileDomain ToDomain(int x, int y) {
 
             if(disabled)
-                return new TileDomain(TileDataDomainFactory.CreateTileByType(TileType.Disabled), TilePreparation.None);
-            return new TileDomain(TileDataDomainFactory.CreateTileByType(tileType), GetTilePreparation());
+                return new TileDomain(new TilePosition(x, y), TileDataDomainFactory.CreateTileByType(TileType.Disabled), TilePreparation.None);
+            return new TileDomain(new TilePosition(x, y), TileDataDomainFactory.CreateTileByType(tileType), GetTilePreparation());
         }
 
         private TilePreparation GetTilePreparation() {

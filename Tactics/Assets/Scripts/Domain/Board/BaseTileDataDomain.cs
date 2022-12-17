@@ -5,6 +5,7 @@ using Tactics.Domain.Interface.Unit;
 namespace Tactics.Domain.Board {
 
     public abstract class BaseTileDataDomain : ITileDataDomain {
+        public virtual bool UnitsCanStay => true;
         public virtual bool Disabled => false;
         public virtual bool Destroyable => false;
         public virtual int DefenseBonus => 0;

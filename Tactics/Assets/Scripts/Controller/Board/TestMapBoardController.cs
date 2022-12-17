@@ -4,15 +4,18 @@ using UnityEngine;
 using Tactics.Domain.Map;
 using Tactics.Service;
 using Tactics.Domain.Interface.Board;
+using Tactics.Domain.Interface.Unit;
 
 namespace Tactics.Controller.Board {
     public class TestMapBoardController : BaseBoardController
     {
         public override ITileDomain SelectedTile => Board.CurrentSelectedTile;
         private BoardService Service { get; set; }
-        private IBoardDomain Board { get; set; }
+        public IBoardDomain Board { get; private set; }
 
         [field:SerializeField] private TileController TilePrefab { get; set; }
+
+        private List<TileController> TileControllers { get; set; }
 
         public override void Init() {
             Service = BoardService.Instance;
@@ -20,8 +23,8 @@ namespace Tactics.Controller.Board {
             SetupBoard();
         }
 
-        public override UnitData SelectUnit() {
-            return null;
+        public override IUnitDomain SelectUnit() {
+            return SelectedTile.UnitOnTile;
         }
 
         public override Vector2 GetSize() {
@@ -29,12 +32,14 @@ namespace Tactics.Controller.Board {
         }
 
         private void SetupBoard() {
+            TileControllers = new List<TileController>();
             for(int x = 0; x < Board.Width; x++) {
                 for (int y = 0; y < Board.Height; y++) {
                     var tile = Instantiate(TilePrefab);
                     tile.transform.position = new Vector2(x, y);
                     tile.transform.SetParent(this.transform);
                     tile.Init(Board.BoardRow[y].TileRow[x]);
+                    TileControllers.Add(tile);
                 }
             }
         }

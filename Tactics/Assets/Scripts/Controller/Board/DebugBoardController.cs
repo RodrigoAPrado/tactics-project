@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Tactics.Domain.Map;
+using Tactics.Domain.Interface.Unit;
 
 namespace Tactics.Controller.Board {
     public class DebugBoardController : BaseBoardController
@@ -26,7 +27,7 @@ namespace Tactics.Controller.Board {
             }
         }
 
-        public override UnitData SelectUnit() {
+        public override IUnitDomain SelectUnit() {
             return null;
         }
 

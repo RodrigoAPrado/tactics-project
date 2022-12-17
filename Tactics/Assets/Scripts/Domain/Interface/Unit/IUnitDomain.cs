@@ -1,26 +1,53 @@
+using System;
+using System.Collections.Generic;
+using Tactics.Domain.Interface.Board;
+
 namespace Tactics.Domain.Interface.Unit {
     public interface IUnitDomain {
-        MoveType MovementType { get; }
+        Guid Id { get; }
+        string Name { get; }
+        int MaxHitPoints { get; }
+        int CurrentHitPoints { get; }
+        int DamageSustained { get; }
+        int Strength { get; }
+        int Magic { get; }
+        int Skill { get; }
+        int Speed { get; }
+        int Luck { get; }
+        int Defense { get; }
+        int Resistance { get; }
+        int Weight { get; }
+        int Move { get; }
+        int Constitution { get; }
+        Affinity Affinity { get; }
+        ArmyType ArmyType { get; }
+        IDictionary<WeaponType, int> WeaponExp { get; }
+
+        UnitState CurrentState { get; }
+        ITileDomain TileBelowUnit { get; }
+
+        MoveType GetMovementType();
+        void AddDamage(int damage);
+        void AddTileBelowUnit(ITileDomain tile);
+        //TODO: Add status condition;
     }
 
-    public enum MoveType {
-        Infantry = 0,
-        Armor = 1,
-        Cavalry = 2,
-        Flying = 3,
-        Thief = 4,
-        Mountain = 5,
-        Sea = 6,
-        Berserk = 7,
-        Magic = 8,
-        Almighty = 9,
-        Monster = 10
+    public class IUnitInventory {
     }
 
-    public enum ArmyType {
-        Player = 0,
-        Enemy = 1,
-        Ally = 2,
-        Other = 3
+    public class IUnitInventoryItem {
+        public int ItemType { get; }
+        public int ItemUses { get; }
+    }
+
+    public enum StatusCondition {
+        Poison = 0
+    }
+
+    public enum UnitState {
+        Ready,
+        Acting,
+        Over,
+        Defeated
     }
 }

@@ -5,6 +5,7 @@ using Tactics.Manager;
 using Tactics.Manager.PlayerInput;
 using Tactics.Controller.Board;
 using Tactics.Controller.Menu;
+using Tactics.Controller.Unit;
 using Tactics.Controller;
 
 namespace Tactics.Controller.Scene {
@@ -13,7 +14,8 @@ namespace Tactics.Controller.Scene {
     {
 
         [field:SerializeField] private MapSceneCameraController Camera { get; set; }
-        [field:SerializeField] private BaseBoardController Board { get; set; }
+        [field:SerializeField] private TestMapBoardController Board { get; set; }
+        [field:SerializeField] private TestMapUnitManageController Units { get; set; }
         [field:SerializeField] private MenuController Menu { get; set; }
 
         [field:SerializeField] private UnitModalController UnitModal { get; set; }
@@ -25,6 +27,7 @@ namespace Tactics.Controller.Scene {
             base.Awake();
             Menu.Init();
             Board.Init();
+            Units.Init(Board.Board);
             UnitModal.Init(Board);
             Camera.Init(Board);
 

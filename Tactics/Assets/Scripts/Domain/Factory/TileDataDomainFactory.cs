@@ -1,6 +1,7 @@
 using Tactics.Domain.Interface.Board;
+using Tactics.Domain.Board.Tile;
 
-namespace Tactics.Domain.Board.Tile {
+namespace Tactics.Domain.Factory {
     public static class TileDataDomainFactory {
         public static ITileDataDomain CreateTileByType(TileType tileType) {
             switch(tileType) {
