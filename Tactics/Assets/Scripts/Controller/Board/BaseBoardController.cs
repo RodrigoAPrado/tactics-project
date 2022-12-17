@@ -5,6 +5,7 @@ using UnityEngine;
 using Tactics.Domain.Map;
 using Tactics.Domain.Interface.Board;
 using Tactics.Domain.Interface.Unit;
+using Tactics.Service;
 
 
 namespace Tactics.Controller.Board {
@@ -58,6 +59,10 @@ namespace Tactics.Controller.Board {
 
         public void SubscribeToSelector(Action action) {
             Selector.SubscribeToMovement(action);
+        }
+
+        public virtual void HighLightTile(AvailableTile tile) {
+
         }
     }
 }

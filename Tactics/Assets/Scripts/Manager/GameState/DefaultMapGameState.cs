@@ -21,14 +21,14 @@ namespace Tactics.Manager.GameState {
         {
             var selectedUnit = Context.Board.SelectUnit();
             if(selectedUnit == null) {
-                GameStateManager.Push(new MenuGameState(Context, GameStateManager).Init());
+                GameStateManager.Push(new MenuGameState(Context, GameStateManager));
             } else {
                 switch(selectedUnit.ArmyType) {
                     case ArmyType.Player:
                         if(selectedUnit.CurrentState == UnitState.Ready)
-                            GameStateManager.Push(new PrepareUnitMovementGameState(Context, GameStateManager, selectedUnit));
+                            GameStateManager.Replace(new PrepareAvailableMoveTilesGameState(Context, GameStateManager, selectedUnit));
                         else
-                            GameStateManager.Push(new MenuGameState(Context, GameStateManager).Init());
+                            GameStateManager.Push(new MenuGameState(Context, GameStateManager));
                     break;
                     case ArmyType.Enemy:
                         //TODO: Ativar zona de avanço do inimigo;

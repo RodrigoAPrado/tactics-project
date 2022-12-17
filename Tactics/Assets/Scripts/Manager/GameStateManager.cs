@@ -18,7 +18,7 @@ namespace Tactics.Manager {
         public GameStateManager(GameMapSceneContext context) {
             Context = context;
             StateStack = new Stack<BaseGameState>();
-            StateStack.Push(new DefaultMapGameState(Context, this).Init());
+            StateStack.Push(new DefaultMapGameState(Context, this));
         }
 
         public void Pop() {
@@ -27,6 +27,15 @@ namespace Tactics.Manager {
 
         public void Push(BaseGameState state) {
             StateStack.Push(state);
+            CurrentState.Init();
+        }
+
+        public void Replace(BaseGameState state) {
+            var currentState = StateStack.Peek();
+            if(currentState != null) {
+                Pop();
+                Push(state);
+            }
         }
 
         public void DoCommand(PlayerInputButton button) {

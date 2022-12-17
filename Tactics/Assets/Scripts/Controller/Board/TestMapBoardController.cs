@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -63,6 +64,12 @@ namespace Tactics.Controller.Board {
         public override void MoveSelectorUp() {
             if(Board.MoveCursorPosition(0, 1))
                 Selector.MoveTo(Board.CursorXPosition, Board.CursorYPosition);
+        }
+
+        public override void HighLightTile(AvailableTile tile)
+        {
+            var tileController = TileControllers.Find(o => o.Id == tile.TileId);
+            tileController?.SetState(tile.Interaction);
         }
     }
 }

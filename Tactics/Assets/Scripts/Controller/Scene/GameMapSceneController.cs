@@ -43,10 +43,10 @@ namespace Tactics.Controller.Scene {
     public class GameMapSceneContext {
 
         public MapSceneCameraController Camera { get; }
-        public BaseBoardController Board { get; }
+        public TestMapBoardController Board { get; }
         public MenuController Menu { get; }
 
-        public GameMapSceneContext(MapSceneCameraController camera, BaseBoardController board, MenuController menu) {
+        public GameMapSceneContext(MapSceneCameraController camera, TestMapBoardController board, MenuController menu) {
             Camera = camera;
             Board = board;
             Menu = menu;
