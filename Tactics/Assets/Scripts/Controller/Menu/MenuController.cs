@@ -41,5 +41,9 @@ namespace Tactics.Controller.Menu {
                 CurrentSelectedIndex = Options.Length-1;
             Options[CurrentSelectedIndex].Highlight();
         }
+
+        public MenuOption GetCurrentMenuOption(){
+            return Options[CurrentSelectedIndex].Option;
+        }
     }
 }

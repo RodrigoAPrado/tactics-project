@@ -26,6 +26,17 @@ namespace Tactics.Manager.GameState {
             return this;
         }
 
+        public override void OnAccept()
+        {
+            switch(Context.UnitMenu.GetCurrentMenuOption()) {
+                case Controller.Menu.MenuOption.Wait:
+                    Unit.FinishTurn();
+                    Context.UnitMenu.Hide();
+                    GameStateManager.Replace(new DefaultMapGameState(Context, GameStateManager));
+                break;
+            }
+        }
+
         public override void OnDirectionalDown()
         {
             Context.UnitMenu.NavigateDown();

@@ -29,6 +29,8 @@ namespace Tactics.Domain.Interface.Unit {
         MoveType GetMovementType();
         void AddDamage(int damage);
         void AddTileBelowUnit(ITileDomain tile);
+        void FinishTurn();
+        void AddListener(Action action);
         //TODO: Add status condition;
     }
 

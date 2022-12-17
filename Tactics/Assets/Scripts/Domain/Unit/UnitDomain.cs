@@ -26,6 +26,7 @@ namespace Tactics.Domain.Unit{
         public UnitState CurrentState { get; private set; }
         public ITileDomain TileBelowUnit { get; private set; }
         private IUnitData UnitData { get; }
+        public event Action OnStateChange;
 
         public UnitDomain(IUnitData unitData, ITileDomain tileBelowUnit) {
             Id = Guid.NewGuid();
@@ -54,6 +55,15 @@ namespace Tactics.Domain.Unit{
             TileBelowUnit.RemoveUnitFromTile();
             TileBelowUnit = tile;
             TileBelowUnit.AddUnitOnTile(this);
+        }
+
+        public void FinishTurn() {
+            CurrentState = UnitState.Over;
+            OnStateChange.Invoke();
+        }
+
+        public void AddListener(Action action) {
+            OnStateChange += action;
         }
     }
 }

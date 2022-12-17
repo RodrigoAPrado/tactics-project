@@ -12,9 +12,20 @@ namespace Tactics.Controller.Unit {
         public Guid Id => Unit.Id;
         private IUnitDomain Unit { get; set; }
         private Sequence Sequence { get; set; }
+        [field:SerializeField] private GameObject GrayFilter { get; set; }
         public UnitController Init(IUnitDomain unit) {
             Unit = unit;
+            Unit.AddListener(GrayOut);
+            Clear();
             return this;
+        }
+
+        private void GrayOut() {
+            GrayFilter.SetActive(true);
+        }
+
+        private void Clear() {
+            GrayFilter.SetActive(false);
         }
 
         public void MoveTo(ITileDomain tile, Action callback, bool instant = false) {
