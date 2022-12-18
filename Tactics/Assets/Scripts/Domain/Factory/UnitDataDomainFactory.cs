@@ -5,6 +5,7 @@ using Tactics.Domain.Unit.Data.Generic;
 using Tactics.Domain.Unit.Data.Character;
 using Tactics.Domain.Unit.Data.Base;
 using Tactics.Domain.Unit.Data.Class;
+using Tactics.Domain.Interface.Item.Data;
 
 namespace Tactics.Domain.Factory {
     public static class UnitDataDomainFactory {

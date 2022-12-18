@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Tactics.Domain.Interface.Item.Data;
 
 namespace Tactics.Domain.Interface.Unit {
     public interface IUnitData {
@@ -71,31 +72,5 @@ namespace Tactics.Domain.Interface.Unit {
         Ice = 5,
         Anima = 6,
         Earth = 7,
-    }
-
-    public enum WeaponType {
-        Sword = 0,
-        Axe = 1,
-        Lance = 2,
-        Knife = 3,
-        Bow = 4,
-        Fire = 5,
-        Thunder = 6,
-        Wind = 7,
-        Light = 8,
-        Dark = 9,
-        Staves = 10,
-        Dragon = 11,
-        Monster = 12
-    }
-
-    public enum WeaponRank {
-        None = 0,
-        E = 1,
-        D = 31,
-        C = 71,
-        B = 121,
-        A = 181,
-        S = 251
     }
 }

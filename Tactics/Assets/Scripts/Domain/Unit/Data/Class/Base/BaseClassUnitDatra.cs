@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Tactics.Domain.Interface.Unit;
 using Tactics.Domain.Unit.Data.Base;
+using Tactics.Domain.Interface.Item.Data;
 
 namespace Tactics.Domain.Unit.Data.Class.Base {
     public abstract class BaseClassUnitData : IUnitClassData {

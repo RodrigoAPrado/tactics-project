@@ -4,6 +4,7 @@ using Tactics.Domain.Interface.Board;
 using Tactics.Domain.Unit.Data.Base;
 using Tactics.Domain.Unit;
 using Tactics.Domain.Factory;
+using Tactics.Domain.Interface.Item.Data;
 
 namespace Tactics.Service.Model {
 

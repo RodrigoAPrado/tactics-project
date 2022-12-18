@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Tactics.Domain.Interface.Unit;
 using Tactics.Domain.Unit.Data.Class.Base;
 using Tactics.Domain.Unit.Data.Base;
+using Tactics.Domain.Interface.Item.Data;
 
 namespace Tactics.Domain.Unit.Data.Class {
     public sealed class RangerClassUnitData :  InfantryClassUnitData {

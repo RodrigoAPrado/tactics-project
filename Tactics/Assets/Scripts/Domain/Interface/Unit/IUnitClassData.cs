@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Tactics.Domain.Interface.Item.Data;
 
 namespace Tactics.Domain.Interface.Unit {
     public interface IUnitClassData {

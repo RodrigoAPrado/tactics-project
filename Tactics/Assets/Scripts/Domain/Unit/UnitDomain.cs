@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Tactics.Domain.Interface.Unit;
 using Tactics.Domain.Interface.Board;
+using Tactics.Domain.Interface.Item.Data;
 
 namespace Tactics.Domain.Unit{
     public class UnitDomain : IUnitDomain{

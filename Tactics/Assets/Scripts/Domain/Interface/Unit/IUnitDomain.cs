@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Tactics.Domain.Interface.Board;
+using Tactics.Domain.Interface.Item.Data;
 
 namespace Tactics.Domain.Interface.Unit {
     public interface IUnitDomain {

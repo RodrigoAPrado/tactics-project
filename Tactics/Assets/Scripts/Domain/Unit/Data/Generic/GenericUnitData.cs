@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Tactics.Domain.Interface.Unit;
+using Tactics.Domain.Interface.Item.Data;
 
 namespace Tactics.Domain.Unit.Data.Generic {
 
