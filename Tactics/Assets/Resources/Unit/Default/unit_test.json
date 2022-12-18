@@ -22,7 +22,9 @@
             },
             "weaponExp" : {
                 "0" : 0
-            }
+            },
+            "level" : 3,
+            "exp" : 0
         },
         {
             "startingPosition" : {
@@ -46,7 +48,9 @@
             },
             "weaponExp" : {
                 "0" : 0
-            }
+            },
+            "level" : 6,
+            "exp" : 0
         }
     ]
 }

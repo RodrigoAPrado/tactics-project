@@ -28,10 +28,12 @@ namespace Tactics.Service.Model {
         public Affinity affinity { get; set; }
         public UnitStatsModel gainedStats { get; set; }
         public Dictionary<WeaponType, int> weaponExp { get;set; }
+        public int level { get; set; }
+        public int exp { get; set; }
 
         public IUnitDomain ToDomain(IBoardDomain board) {
             var data = UnitDataDomainFactory.CreateUnitDataByType(armyId, armyType,
-            unitResource, unitClass, affinity, gainedStats.ToDomain(), weaponExp);
+            unitResource, unitClass, affinity, gainedStats.ToDomain(), weaponExp, level, exp);
             return new UnitDomain(data, board.GetTileOnPosition(startingPosition.x, startingPosition.y));
         }
 

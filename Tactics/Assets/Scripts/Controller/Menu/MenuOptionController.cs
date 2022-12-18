@@ -32,7 +32,8 @@ namespace Tactics.Controller.Menu {
         Attack = 5,
         Items = 6,
         Trade = 7,
-        Wait = 8
+        Wait = 8,
+        Shove = 9
     }
 
 }

@@ -4,9 +4,14 @@ using Tactics.Domain.Unit.Data;
 using Tactics.Domain.Unit.Data.Generic;
 using Tactics.Domain.Unit.Data.Character;
 using Tactics.Domain.Unit.Data.Base;
+using Tactics.Domain.Unit.Data.Class;
 
 namespace Tactics.Domain.Factory {
     public static class UnitDataDomainFactory {
+
+        private static Dictionary<UnitClass, IUnitClassData> ClassDataDic { get; set; }
+            = new Dictionary<UnitClass, IUnitClassData>();
+
         public static IUnitData CreateUnitDataByType(
             int armyId,
             ArmyType armyType,
@@ -14,51 +19,42 @@ namespace Tactics.Domain.Factory {
             UnitClass unitClass,
             Affinity affinity,
             IUnitStats gainedStats,
-            IDictionary<WeaponType, int> weaponExp
+            Dictionary<WeaponType, int> weaponExp,
+            int level, int exp
             ) {
-            if(unitResource == UnitResource.Generic) {
-                return CreateBaseUnitData(armyId, armyType, affinity, gainedStats, weaponExp, unitClass);
+            
+            var unitClassData = GetUnitClassData(unitClass);
+
+            switch(unitResource) {
+                case UnitResource.Generic:
+                    return new GenericUnitData(unitClassData, gainedStats, weaponExp,
+                    affinity,
+                    armyType,
+                    armyId,
+                    level, exp);
+                case UnitResource.Razvan:
+                    return new RazvanUnitData(unitClassData, gainedStats, weaponExp,
+                    armyType,
+                    armyId,
+                    level, exp);
             }
-            else{
-                switch(unitResource){
-                    case UnitResource.Razvan:
-                    return CreateRazvanUnitData(armyId, armyType, affinity, gainedStats, weaponExp, unitClass);
-                }
-            }
+
             return null;
         }
 
-        private static BaseUnitData CreateBaseUnitData(int armyId, ArmyType armyType, Affinity affinity, IUnitStats gainedStats,
-            IDictionary<WeaponType, int> weaponExp, UnitClass unitClass) {
+        private static IUnitClassData GetUnitClassData(UnitClass unitClass) {
+            if(!ClassDataDic.ContainsKey(unitClass)) {
                 switch(unitClass) {
                     case UnitClass.Fencer:
-                        return CreateFencerUnitData(armyId, armyType, affinity, gainedStats, weaponExp);
+                        ClassDataDic.Add(UnitClass.Fencer, FencerClassUnitData.Instance);
+                    break;
                     case UnitClass.Ranger:
-                        return CreateRangerUnitData(armyId, armyType, affinity, gainedStats, weaponExp);
-                    case UnitClass.Test:
-                        return CreateTestUnitData(armyId, armyType, affinity, gainedStats, weaponExp);
+                        ClassDataDic.Add(UnitClass.Ranger, RangerClassUnitData.Instance);
+                    break;
                 }
-                return null;
-        }
+            }
 
-        private static BaseUnitData CreateFencerUnitData(int armyId, ArmyType armyType, Affinity affinity, IUnitStats gainedStats,
-            IDictionary<WeaponType, int> weaponExp) {
-            return new FencerUnitData(armyId, armyType, affinity, gainedStats, weaponExp);
-        }
-        private static BaseUnitData CreateTestUnitData(int armyId, ArmyType armyType, Affinity affinity, IUnitStats gainedStats,
-            IDictionary<WeaponType, int> weaponExp) {
-            return new TestUnitData(armyId, armyType, affinity, gainedStats, weaponExp);
-        }
-        private static BaseUnitData CreateRangerUnitData(int armyId, ArmyType armyType, Affinity affinity, IUnitStats gainedStats,
-            IDictionary<WeaponType, int> weaponExp) {
-            return new RangerUnitData(armyId, armyType, affinity, gainedStats, weaponExp);
-        }
-        private static IUnitData CreateRazvanUnitData(int armyId, ArmyType armyType, Affinity affinity, IUnitStats gainedStats,
-            IDictionary<WeaponType, int> weaponExp, UnitClass unitClass) {
-
-            var baseUnitData = CreateBaseUnitData(armyId, armyType, affinity, gainedStats, weaponExp, unitClass);
-            
-            return new RazvanUnitData(armyId, armyType, affinity, gainedStats, weaponExp, baseUnitData);
+            return ClassDataDic[unitClass];
         }
     }
 }

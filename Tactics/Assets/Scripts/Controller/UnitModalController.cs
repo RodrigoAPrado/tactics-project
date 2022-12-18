@@ -36,7 +36,7 @@ namespace Tactics.Controller {
         }
 
         public void Show(IUnitDomain unit) {
-            LevelNumber.SetText("1");
+            LevelNumber.SetText(unit.Level.ToString());
             UnitName.SetText(unit.Name);
             HP.SetText(unit.CurrentHitPoints.ToString() + "/<color=\"green\">"+unit.MaxHitPoints.ToString()+"</color>");
             WeaponName.SetText("Iron Sword");

@@ -7,6 +7,8 @@ namespace Tactics.Domain.Unit{
     public class UnitDomain : IUnitDomain{
         public Guid Id { get; private set;}
         public string Name => UnitData.Name;
+        public int Level => UnitData.Level;
+        public int Exp => UnitData.Exp;
         public int MaxHitPoints => UnitData.HitPoints;
         public int CurrentHitPoints => MaxHitPoints - DamageSustained < 0 ? 0 : MaxHitPoints - DamageSustained;
         public int DamageSustained { get; private set; }
@@ -20,9 +22,8 @@ namespace Tactics.Domain.Unit{
         public int Weight => UnitData.Weight;
         public int Move => UnitData.Move;
         public int Constitution => UnitData.Constitution;
-        public Affinity Affinity => UnitData.Affinity;
-        public ArmyType ArmyType => UnitData.ArmyType;
-        public IDictionary<WeaponType, int> WeaponExp => UnitData.WeaponExp;
+        public Affinity Affinity => UnitData.UnitAffinity;
+        public ArmyType ArmyType => UnitData.UnitArmyType;
         public UnitState CurrentState { get; private set; }
         public ITileDomain TileBelowUnit { get; private set; }
         private IUnitData UnitData { get; }
@@ -38,6 +39,10 @@ namespace Tactics.Domain.Unit{
 
         public MoveType GetMovementType() {
             return UnitData.MoveType;
+        }
+
+        public int GetWeaponExpByType(WeaponType type) {
+            return UnitData.GetWeaponExpByType(type);
         }
 
         public void AddDamage(int damage) {

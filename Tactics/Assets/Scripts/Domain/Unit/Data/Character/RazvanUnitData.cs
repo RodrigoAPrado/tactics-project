@@ -1,55 +1,65 @@
 using System.Collections.Generic;
-using Tactics.Domain.Unit.Data.Base;
 using Tactics.Domain.Interface.Unit;
+using Tactics.Domain.Unit.Data.Generic;
+using Tactics.Domain.Unit.Data.Class;
+using Tactics.Domain.Unit.Data.Base;
 
 namespace Tactics.Domain.Unit.Data.Character {
-    public class RazvanUnitData : InfantryUnitData {
+    public class RazvanUnitData : GenericUnitData {
+
+        protected override IDictionary<WeaponType, int> BaseWeaponExp { get; } = new Dictionary<WeaponType, int>() {
+            {WeaponType.Sword, (int) WeaponRank.D},
+            {WeaponType.Bow, (int) WeaponRank.E}
+        };
+
         public override string Name => "Razvan";
-        public override UnitClass UnitClass => BaseClass.UnitClass;
-        public override IUnitStats BaseStats => RazvanBaseStats;
-        public override IUnitStats StatGrowhts => RazvanStatGrowths;
-        public override IUnitStats MaxStats => BaseClass.MaxStats;
-        public override IUnitStats PromotionGains => BaseClass.PromotionGains;
-        public override UnitClass PromotionClass => BaseClass.PromotionClass;
-        public override IList<WeaponType> AvailableWeapons => BaseClass.AvailableWeapons;
+        private static Affinity CharacterAffinity => Affinity.Earth;
+        private static int BaseLevel => 5;
 
-        private BaseUnitData BaseClass { get; set; }
-
-        private static IUnitStats RazvanBaseStats { get; } =
+        protected override IUnitStats BaseStats { get; } =
             new UnitStats(
-                hitPoints:20,
-                strength:7,
-                magic:0,
-                skill:7,
-                speed:8,
-                luck:2,
-                defense:5,
-                resistance:2,
-                weight:8,
+                hitPoints:23,
+                strength:9,
+                magic:2,
+                skill:9,
+                speed:11,
+                luck:5,
+                defense:6,
+                resistance:5,
+                weight:7,
                 move:5,
-                constitution:8);
-        private static IUnitStats RazvanStatGrowths { get; } =
+                constitution:7);
+
+                
+        protected override IUnitStats Growths { get; } =
             new UnitStats(
-                hitPoints:75,
-                strength:55,
+                hitPoints:90,
+                strength:50,
                 magic:10,
-                skill:60,
+                skill:65,
                 speed:55,
-                luck:30,
-                defense:40,
-                resistance:30,
+                luck:25,
+                defense:35,
+                resistance:20,
                 weight:0,
                 move:0,
                 constitution:0);
 
-        public RazvanUnitData(
-            int armyId,
-            ArmyType armyType,
-            Affinity affinity,
-            IUnitStats gainedStats,
-            IDictionary<WeaponType, int> weaponExp, BaseUnitData baseClass):
-            base(armyId, armyType, affinity, gainedStats, weaponExp){
-                BaseClass = baseClass;
-            }
+        public static RazvanUnitData GetBaseCharacter(ArmyType armyType, int armyId) {
+            return new RazvanUnitData(
+                RangerClassUnitData.Instance,
+                UnitStats.GetEmpty(),
+                new Dictionary<WeaponType, int>(),
+                armyType,
+                armyId,
+                BaseLevel,
+                0);
+        }
+
+        public RazvanUnitData(IUnitClassData classData, IUnitStats gainedStats, Dictionary<WeaponType, int> gainedWeaponExp, ArmyType armyType, 
+        int armyId, int level, int exp) : base(classData, gainedStats, gainedWeaponExp,
+            CharacterAffinity, armyType, armyId, level, exp) {
+                
+        }
     }
 } 

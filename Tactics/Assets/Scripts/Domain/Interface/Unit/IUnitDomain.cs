@@ -6,6 +6,8 @@ namespace Tactics.Domain.Interface.Unit {
     public interface IUnitDomain {
         Guid Id { get; }
         string Name { get; }
+        int Level { get; }
+        int Exp { get; }
         int MaxHitPoints { get; }
         int CurrentHitPoints { get; }
         int DamageSustained { get; }
@@ -21,12 +23,13 @@ namespace Tactics.Domain.Interface.Unit {
         int Constitution { get; }
         Affinity Affinity { get; }
         ArmyType ArmyType { get; }
-        IDictionary<WeaponType, int> WeaponExp { get; }
 
         UnitState CurrentState { get; }
         ITileDomain TileBelowUnit { get; }
 
         MoveType GetMovementType();
+        
+        int GetWeaponExpByType(WeaponType type);
         void AddDamage(int damage);
         void AddTileBelowUnit(ITileDomain tile);
         void FinishTurn();
