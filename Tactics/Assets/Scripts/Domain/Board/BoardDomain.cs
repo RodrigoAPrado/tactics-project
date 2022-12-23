@@ -14,6 +14,43 @@ namespace Tactics.Domain.Board {
         public ITileDomain CurrentSelectedTile => _boardRow[CursorYPosition].TileRow[CursorXPosition];
         public int CursorXPosition { get; private set; }
         public int CursorYPosition { get; private set; }
+        public IUnitDomain SelectedUnit { get; private set; }
+        public bool CanUnitAttack { 
+            get {
+                var range = SelectedUnit.AttackRange;
+                var leftTile = GetTileOnPosition(SelectedUnit.TileBelowUnit.Position.X-1, SelectedUnit.TileBelowUnit.Position.Y);
+                var rightTile = GetTileOnPosition(SelectedUnit.TileBelowUnit.Position.X+1, SelectedUnit.TileBelowUnit.Position.Y);
+                var upTile = GetTileOnPosition(SelectedUnit.TileBelowUnit.Position.X, SelectedUnit.TileBelowUnit.Position.Y+1);
+                var downTile = GetTileOnPosition(SelectedUnit.TileBelowUnit.Position.X, SelectedUnit.TileBelowUnit.Position.Y-1);
+                if(leftTile != null && !leftTile.Empty && leftTile.UnitOnTile.ArmyType == ArmyType.Enemy)
+                    return true;
+                if(rightTile != null && !rightTile.Empty && rightTile.UnitOnTile.ArmyType == ArmyType.Enemy)
+                    return true;
+                if(upTile != null && !upTile.Empty && upTile.UnitOnTile.ArmyType == ArmyType.Enemy)
+                    return true;
+                if(downTile != null && !downTile.Empty && downTile.UnitOnTile.ArmyType == ArmyType.Enemy)
+                    return true;
+                return false;
+            }
+        }
+
+        public bool CanUnitTrade { 
+            get {
+                return false;
+            }
+        }
+        
+        public bool CanUnitUseItems { 
+            get {
+                return false;
+            }
+        }
+        
+        public bool CanUnitUseShove { 
+            get {
+                return false;
+            }
+        }
 
         public BoardDomain(List<ITileRowDomain> boardRow) {
             _boardRow = boardRow;
@@ -98,6 +135,13 @@ namespace Tactics.Domain.Board {
                     break;
             }
             return resultTile;
+        }
+
+        public void SelectUnit(IUnitDomain unit) {
+            SelectedUnit = unit;
+        }
+        public void UnselectUnit() {
+            SelectedUnit = null;
         }
     }
 

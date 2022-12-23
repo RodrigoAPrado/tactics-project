@@ -9,6 +9,7 @@ namespace Tactics.Controller.Unit {
     public class TestMapUnitManageController : MonoBehaviour {
 
         [field: SerializeField] private UnitController UnitPrefab { get; set; }
+        [field: SerializeField] private Color[] UnitColors { get; set; }
         private UnitService Service { get; set; }
         private List<IUnitDomain> Units { get; set; }
         private List<UnitController> UnitControllers { get; set; }
@@ -28,6 +29,7 @@ namespace Tactics.Controller.Unit {
                 unitController.transform.SetParent(this.transform);
                 unitController.Init(unit);
                 UnitControllers.Add(unitController);
+                unitController.SetSpriteColor(UnitColors[(int)unit.ArmyType]);
             }
         }
 
@@ -35,6 +37,5 @@ namespace Tactics.Controller.Unit {
             var unitController = UnitControllers.Find(o => o.Id == unit.Id);
             unitController.MoveTo(tile, callback, instant);
         }
-
     }
 }

@@ -14,6 +14,7 @@ namespace Tactics.Manager.GameState {
 
         public override BaseGameState Init()
         {
+            Context.Board.UnselectUnit();
             Context.Board.ClearHighlights();
             Context.Board.ShowSelector();
             return this;
@@ -21,7 +22,7 @@ namespace Tactics.Manager.GameState {
 
         public override void OnAccept()
         {
-            var selectedUnit = Context.Board.SelectUnit();
+            var selectedUnit = Context.Board.UnitOnSelectedTile();
             if(selectedUnit == null) {
                 GameStateManager.Push(new MenuGameState(Context, GameStateManager));
             } else {

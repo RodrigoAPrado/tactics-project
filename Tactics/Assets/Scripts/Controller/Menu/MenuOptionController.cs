@@ -7,11 +7,23 @@ namespace Tactics.Controller.Menu {
 
     public class MenuOptionController : MonoBehaviour
     {
+        public bool Enabled { get; private set; }
         [field: SerializeField] public MenuOption Option { get; private set; }
         [field: SerializeField] private Image Image { get; set; }
 
         public void Awake() {
             UnHighlight();
+            Enable();
+        }
+
+        public void Disable() {
+            Enabled = false;
+            gameObject.SetActive(false);
+        }
+
+        public void Enable() {
+            Enabled = true;
+            gameObject.SetActive(true);
         }
 
         public void Highlight() {

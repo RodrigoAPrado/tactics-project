@@ -7,6 +7,7 @@ namespace Tactics.Domain.Item.Data.Weapon.Base {
 
         public abstract WeaponCode WpnCode { get; }
         public abstract ItemType Type { get; }
+        public abstract DamageType DmgType { get; }
         public abstract int Uses { get; }
         public abstract int PricePerUse { get; }
         public abstract WeaponType WpnType { get; }

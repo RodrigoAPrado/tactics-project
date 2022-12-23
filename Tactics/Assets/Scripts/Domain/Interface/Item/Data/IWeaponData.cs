@@ -4,6 +4,7 @@ namespace Tactics.Domain.Interface.Item.Data {
     public interface IWeaponData : IItemData {
         WeaponCode WpnCode { get; }
         WeaponType WpnType { get; }
+        DamageType DmgType { get; }
         WeaponRank WpnRank { get; }
         int Might { get; }
         int Hit { get; }
@@ -12,6 +13,7 @@ namespace Tactics.Domain.Interface.Item.Data {
         int MinRange { get; }
         int MaxRange { get; }
         int WeaponExpGiven { get; }
+        
     }
 
     public enum WeaponType {
@@ -38,5 +40,10 @@ namespace Tactics.Domain.Interface.Item.Data {
         B = 121,
         A = 181,
         S = 251
+    }
+
+    public enum DamageType {
+        Physical = 0,
+        Magical = 1
     }
 }

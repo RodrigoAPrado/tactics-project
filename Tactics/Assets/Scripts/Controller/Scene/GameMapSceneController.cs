@@ -29,11 +29,11 @@ namespace Tactics.Controller.Scene {
             UnitMenu.Init();
             Board.Init();
             Units.Init(Board.Board);
-            UnitModal.Init(Board);
             Camera.Init(Board);
 
             Context = new GameMapSceneContext(Camera, Board, Menu, UnitMenu, Units);
             GameState =  new GameStateManager(Context);
+            UnitModal.Init(Board, GameState);
         }
 
         public override void DoCommand(PlayerInputButton button) {

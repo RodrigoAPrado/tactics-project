@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b7996a7f620454a9bf9a50a60042de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Sprite>k__BackingField: {fileID: 399389385878510544}
   <GrayFilter>k__BackingField: {fileID: 399389385506261296}
 --- !u!1 &399389385506261296
 GameObject:

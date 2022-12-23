@@ -46,8 +46,8 @@ namespace Tactics.Domain.Factory {
         private static IUnitClassData GetUnitClassData(UnitClass unitClass) {
             if(!ClassDataDic.ContainsKey(unitClass)) {
                 switch(unitClass) {
-                    case UnitClass.Fencer:
-                        ClassDataDic.Add(UnitClass.Fencer, FencerClassUnitData.Instance);
+                    case UnitClass.Soldier:
+                        ClassDataDic.Add(UnitClass.Soldier, SoldierClassUnitData.Instance);
                     break;
                     case UnitClass.Ranger:
                         ClassDataDic.Add(UnitClass.Ranger, RangerClassUnitData.Instance);

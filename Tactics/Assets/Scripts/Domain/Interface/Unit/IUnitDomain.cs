@@ -36,6 +36,10 @@ namespace Tactics.Domain.Interface.Unit {
         void FinishTurn();
         void AddListener(Action action);
         //TODO: Add status condition;
+
+        DamageType DmgType { get; }
+        int AttackRange { get; }
+        int Attack { get; }
     }
 
     public class IUnitInventory {

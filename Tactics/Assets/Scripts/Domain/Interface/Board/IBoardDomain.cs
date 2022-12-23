@@ -11,11 +11,18 @@ namespace Tactics.Domain.Interface.Board
         ITileDomain CurrentSelectedTile { get; }
         int CursorXPosition { get; }
         int CursorYPosition { get; }
+        IUnitDomain SelectedUnit { get; }
+        bool CanUnitAttack { get; }
+        bool CanUnitTrade { get; }
+        bool CanUnitUseItems { get; }
+        bool CanUnitUseShove { get; }
         void Init();
         bool MoveCursorPosition(int x, int y);
         bool MoveCursorToSpecificPosition(ITileDomain tile);
         ITileDomain GetTileOnPosition(int x, int y);
         ITileDomain GetTileById(Guid id);
+        void SelectUnit(IUnitDomain unit);
+        void UnselectUnit();
     }
 
     public interface ITileRowDomain {

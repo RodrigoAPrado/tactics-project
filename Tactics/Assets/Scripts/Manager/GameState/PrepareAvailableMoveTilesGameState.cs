@@ -20,6 +20,7 @@ namespace Tactics.Manager.GameState {
 
         public override BaseGameState Init()
         {
+            Context.Board.SelectUnit(Unit);
             if(AvailableTiles == null)
                 AvailableTiles = Service.GetSelectableTiles(Unit, Context.Board.Board);
 
@@ -28,7 +29,6 @@ namespace Tactics.Manager.GameState {
             }
 
             GameStateManager.Replace(new SelectUnitMovementGameState(Context, GameStateManager, Unit, AvailableTiles));
-            
             return this;
         }
 

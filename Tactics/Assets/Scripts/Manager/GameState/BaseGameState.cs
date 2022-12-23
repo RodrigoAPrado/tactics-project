@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Tactics.Controller;
 using UnityEngine;
 using Tactics.Controller.Scene;
 
@@ -9,6 +10,8 @@ namespace Tactics.Manager.GameState {
         
         protected GameMapSceneContext Context { get; set; }
         protected GameStateManager GameStateManager { get; set; }
+
+        public virtual UnitModalState ModalState => UnitModalState.Show;
 
         protected BaseGameState (GameMapSceneContext context, GameStateManager gameStateManager) {
             Context = context;

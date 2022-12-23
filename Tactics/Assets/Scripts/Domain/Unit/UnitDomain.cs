@@ -71,5 +71,9 @@ namespace Tactics.Domain.Unit{
         public void AddListener(Action action) {
             OnStateChange += action;
         }
+
+        public DamageType DmgType => DamageType.Physical; //TODO;
+        public int AttackRange => 1; //TODO:
+        public int Attack => Strength + 10; //TODO;
     }
 }

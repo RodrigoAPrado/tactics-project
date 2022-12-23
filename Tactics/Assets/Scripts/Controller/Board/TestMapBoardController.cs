@@ -13,6 +13,7 @@ namespace Tactics.Controller.Board {
         public override ITileDomain SelectedTile => Board.CurrentSelectedTile;
         private BoardService Service { get; set; }
         public IBoardDomain Board { get; private set; }
+        public IUnitDomain SelectedUnit => Board.SelectedUnit;
 
         [field:SerializeField] private TileController TilePrefab { get; set; }
 
@@ -24,8 +25,16 @@ namespace Tactics.Controller.Board {
             SetupBoard();
         }
 
-        public override IUnitDomain SelectUnit() {
+        public override IUnitDomain UnitOnSelectedTile() {
             return SelectedTile.UnitOnTile;
+        }
+
+        public void SelectUnit(IUnitDomain unit) {
+            Board.SelectUnit(unit);
+        }
+
+        public void UnselectUnit() {
+            Board.UnselectUnit();
         }
 
         public override Vector2 GetSize() {

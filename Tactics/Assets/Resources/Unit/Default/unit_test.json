@@ -51,6 +51,32 @@
             },
             "level" : 6,
             "exp" : 0
+        },
+        {
+            "startingPosition" : {
+                "x": 1,
+                "y": 5
+            },
+            "unitClass": 0,
+            "armyType": 1,
+            "unitResource": 0,
+            "armyId": 1,
+            "affinity": 0,
+            "gainedStats" : {
+                "hitPoints":1,
+                "strength":0,
+                "magic":0,
+                "skill":1,
+                "speed":1,
+                "luck":1,
+                "defense":0,
+                "resistance":0
+            },
+            "weaponExp" : {
+                "0" : 0
+            },
+            "level" : 2,
+            "exp" : 0
         }
     ]
 }

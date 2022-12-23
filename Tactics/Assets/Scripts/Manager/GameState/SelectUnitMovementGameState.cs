@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using Tactics.Controller;
 using Tactics.Controller.Scene;
 using Tactics.Domain.Map;
 using UnityEngine;
@@ -9,6 +10,7 @@ using Tactics.Service;
 
 namespace Tactics.Manager.GameState {
     public class SelectUnitMovementGameState : DefaultMapGameState {
+        public override UnitModalState ModalState => UnitModalState.OnlyNotSelected;
         private IUnitDomain Unit { get; set; }
         private List<AvailableTile> Tiles { get; set; }
         public SelectUnitMovementGameState(GameMapSceneContext context, GameStateManager gameStateManager, IUnitDomain unit, List<AvailableTile> tiles) : base(context, gameStateManager)

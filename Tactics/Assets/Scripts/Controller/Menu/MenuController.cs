@@ -21,6 +21,30 @@ namespace Tactics.Controller.Menu {
             CurrentSelectedIndex = 0;
         }
 
+        public void GoToFirstAvailableOption() {
+            if(!Options[CurrentSelectedIndex].Enabled) {
+                NavigateDown();
+            }
+        }
+
+        public void DisableOption(MenuOption option) {
+            foreach(var o in Options) {
+                if(o.Option == option) {
+                    o.Disable();
+                    return;
+                }
+            }
+        }
+
+        public void EnableOption(MenuOption option) {
+            foreach(var o in Options) {
+                if(o.Option == option) {
+                    o.Enable();
+                    return;
+                }
+            }
+        }
+
         public void Hide() {
             Options[CurrentSelectedIndex].UnHighlight();
             gameObject.SetActive(false);
@@ -32,14 +56,21 @@ namespace Tactics.Controller.Menu {
             CurrentSelectedIndex++;
             if(CurrentSelectedIndex >= Options.Length)
                 CurrentSelectedIndex = 0;
-            Options[CurrentSelectedIndex].Highlight();
+            if(Options[CurrentSelectedIndex].Enabled)
+                Options[CurrentSelectedIndex].Highlight();
+            else
+                NavigateDown();
         }
+        
         public void NavigateUp() {
             Options[CurrentSelectedIndex].UnHighlight();
             CurrentSelectedIndex--;
             if(CurrentSelectedIndex < 0)
                 CurrentSelectedIndex = Options.Length-1;
-            Options[CurrentSelectedIndex].Highlight();
+            if(Options[CurrentSelectedIndex].Enabled)
+                Options[CurrentSelectedIndex].Highlight();
+            else
+                NavigateUp();
         }
 
         public MenuOption GetCurrentMenuOption(){

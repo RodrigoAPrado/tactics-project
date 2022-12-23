@@ -5,14 +5,14 @@ using Tactics.Domain.Unit.Data.Base;
 using Tactics.Domain.Interface.Item.Data;
 
 namespace Tactics.Domain.Unit.Data.Class {
-    public class FencerClassUnitData :  InfantryClassUnitData {
+    public class SoldierClassUnitData :  InfantryClassUnitData {
 
         private static IUnitClassData _instance;
 
         public static IUnitClassData Instance {
             get {
                 if(_instance == null) {
-                    _instance = new FencerClassUnitData();
+                    _instance = new SoldierClassUnitData();
                 }
                 return _instance;
             }
@@ -23,8 +23,8 @@ namespace Tactics.Domain.Unit.Data.Class {
         public override IUnitStats Growths => ClassStatGrowths;
         public override IUnitStats MaxStats => PhysicalBaseClassMaxStats;
         public override IUnitStats PromotionGains => BaseClassPromotionGains;
-        public override UnitClass UnitClass => UnitClass.Fencer;
-        public override UnitClass PromotionClass => UnitClass.Swordmaster;
+        public override UnitClass UnitClass => UnitClass.Soldier;
+        public override UnitClass PromotionClass => UnitClass.Saber;
 
         private IUnitStats ClassBaseStats { get; } =
             new UnitStats(
@@ -57,7 +57,7 @@ namespace Tactics.Domain.Unit.Data.Class {
             {WeaponType.Sword, (int) WeaponRank.D}
         };
 
-        private FencerClassUnitData() {
+        private SoldierClassUnitData() {
             
         }
     }

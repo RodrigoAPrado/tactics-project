@@ -27,7 +27,7 @@ namespace Tactics.Controller.Board {
             }
         }
 
-        public override IUnitDomain SelectUnit() {
+        public override IUnitDomain UnitOnSelectedTile() {
             return null;
         }
 

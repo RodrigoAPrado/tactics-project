@@ -19,7 +19,7 @@ namespace Tactics.Controller.Board {
 
         public abstract Vector2 GetSize();
 
-        public abstract IUnitDomain SelectUnit();
+        public abstract IUnitDomain UnitOnSelectedTile();
 
         public virtual void MoveSelectorDown() {
             if(Selector.SelectorPosition.y <=0 )

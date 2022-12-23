@@ -12,6 +12,7 @@ namespace Tactics.Controller.Unit {
         public Guid Id => Unit.Id;
         private IUnitDomain Unit { get; set; }
         private Sequence Sequence { get; set; }
+        [field:SerializeField] private SpriteRenderer Sprite { get; set; }
         [field:SerializeField] private GameObject GrayFilter { get; set; }
         public UnitController Init(IUnitDomain unit) {
             Unit = unit;
@@ -41,6 +42,10 @@ namespace Tactics.Controller.Unit {
             Sequence.Append(transform.DOMove(new Vector2(tile.Position.X, tile.Position.Y), 0.2f).SetEase(Ease.Linear));
             Sequence.OnComplete(() => callback());
             Sequence.Play();
+        }
+
+        public void SetSpriteColor(Color c) {
+            Sprite.color = c;
         }
     }
 }

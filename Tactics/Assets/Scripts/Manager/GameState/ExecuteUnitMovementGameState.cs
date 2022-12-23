@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using Tactics.Controller;
 using Tactics.Controller.Scene;
 using Tactics.Domain.Interface.Board;
 using UnityEngine;
@@ -9,6 +10,7 @@ using Tactics.Service;
 
 namespace Tactics.Manager.GameState {
     public class ExecuteUnitMovementGameState : BaseGameState {
+        public override UnitModalState ModalState => UnitModalState.DontShow;
         private IUnitDomain Unit { get; set; }
         private List<AvailableTile> Tiles { get; set; }
         private List<ITileDomain> Path { get; set; }
@@ -21,7 +23,6 @@ namespace Tactics.Manager.GameState {
 
         public override BaseGameState Init()
         {
-            Debug.Log("ExecuteUnitMovementGameState.Init");
             Context.Board.HideSelector();
             Context.Board.ClearHighlights();
             if(Path.Count == 1) {

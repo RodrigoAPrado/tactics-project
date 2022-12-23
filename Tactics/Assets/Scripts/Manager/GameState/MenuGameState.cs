@@ -1,10 +1,12 @@
 using System;
 using Tactics.Controller.Scene;
+using Tactics.Controller;
 using Tactics.Domain.Map;
 using UnityEngine;
 
 namespace Tactics.Manager.GameState {
     public class MenuGameState : BaseGameState {
+        public override UnitModalState ModalState => UnitModalState.DontShow;
         public MenuGameState(GameMapSceneContext context, GameStateManager gameStateManager) : base(context, gameStateManager)
         {
 
