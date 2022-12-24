@@ -24,7 +24,15 @@
                 "0" : 0
             },
             "level" : 3,
-            "exp" : 0
+            "exp" : 0,
+            "inventory" : [
+                {
+                    "itemCode": 0,
+                    "timesUsed": 0,
+                    "droppable": false,
+                    "stealable": false
+                }
+            ]
         },
         {
             "startingPosition" : {
@@ -50,7 +58,9 @@
                 "0" : 0
             },
             "level" : 6,
-            "exp" : 0
+            "exp" : 0,
+            "inventory" : [
+            ]
         },
         {
             "startingPosition" : {
@@ -76,7 +86,15 @@
                 "0" : 0
             },
             "level" : 2,
-            "exp" : 0
+            "exp" : 0,
+            "inventory" : [
+                {
+                    "itemCode": 0,
+                    "timesUsed": 0,
+                    "droppable": false,
+                    "stealable": false
+                }
+            ]
         }
     ]
 }

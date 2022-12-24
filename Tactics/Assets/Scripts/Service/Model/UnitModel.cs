@@ -5,6 +5,8 @@ using Tactics.Domain.Unit.Data.Base;
 using Tactics.Domain.Unit;
 using Tactics.Domain.Factory;
 using Tactics.Domain.Interface.Item.Data;
+using Tactics.Domain.Interface.Item;
+using Tactics.Domain.Item;
 
 namespace Tactics.Service.Model {
 
@@ -31,11 +33,21 @@ namespace Tactics.Service.Model {
         public Dictionary<WeaponType, int> weaponExp { get;set; }
         public int level { get; set; }
         public int exp { get; set; }
+        public ItemModel[] inventory { get; set; }
 
         public IUnitDomain ToDomain(IBoardDomain board) {
             var data = UnitDataDomainFactory.CreateUnitDataByType(armyId, armyType,
             unitResource, unitClass, affinity, gainedStats.ToDomain(), weaponExp, level, exp);
-            return new UnitDomain(data, board.GetTileOnPosition(startingPosition.x, startingPosition.y));
+            return new UnitDomain(data, board.GetTileOnPosition(startingPosition.x, startingPosition.y), BuildInventoryDomain());
+        }
+
+        private IInventoryDomain BuildInventoryDomain() {
+            var inventoryDomain = new InventoryDomain();
+            foreach(var item in inventory) {
+                var itemDomain = item.ToDomain();
+                inventoryDomain.AddItem(itemDomain);
+            }
+            return inventoryDomain;
         }
 
     }
@@ -62,6 +74,17 @@ namespace Tactics.Service.Model {
             return new UnitStats(hitPoints, strength, magic, 
             skill, speed, luck, defense, resistance, 
             weight, move, constitution);
+        }
+    }
+
+    public class ItemModel {
+        public ItemCode itemCode { get; set; }
+        public int timesUsed { get; set; }
+        public bool droppable { get; set; }
+        public bool stealable { get; set; }
+
+        public IItemDomain ToDomain() {
+            return ItemDomainFactory.CreateDomain(itemCode, timesUsed, droppable, stealable);
         }
     }
 }

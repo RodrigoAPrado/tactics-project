@@ -16,9 +16,8 @@ namespace Tactics.Domain.Item.Data.Weapon.Sword {
             }
         }
 
-        public override WeaponCode WpnCode => WeaponCode.Iron_Sword;
+        public override ItemCode ItemCode => ItemCode.Iron_Sword;
         public override DamageType DmgType => DamageType.Physical;
-        public override ItemType Type => ItemType.Weapon;
         public override int Uses => 50;
         public override int PricePerUse => 7;
         public override WeaponType WpnType => WeaponType.Sword;

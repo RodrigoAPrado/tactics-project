@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Tactics.Domain.Interface.Unit;
 using Tactics.Domain.Interface.Board;
 using Tactics.Domain.Interface.Item.Data;
+using Tactics.Domain.Interface.Item;
 
 namespace Tactics.Domain.Unit{
     public class UnitDomain : IUnitDomain{
@@ -30,9 +31,10 @@ namespace Tactics.Domain.Unit{
         private IUnitData UnitData { get; }
         public event Action OnStateChange;
 
-        public UnitDomain(IUnitData unitData, ITileDomain tileBelowUnit) {
+        public UnitDomain(IUnitData unitData, ITileDomain tileBelowUnit, IInventoryDomain inventory) {
             Id = Guid.NewGuid();
             UnitData = unitData;
+            Inventory = inventory;
             CurrentState = UnitState.Ready;
             TileBelowUnit = tileBelowUnit;
             TileBelowUnit.AddUnitOnTile(this);
@@ -72,8 +74,12 @@ namespace Tactics.Domain.Unit{
             OnStateChange += action;
         }
 
-        public DamageType DmgType => DamageType.Physical; //TODO;
-        public int AttackRange => 1; //TODO:
-        public int Attack => Strength + 10; //TODO;
+        public IInventoryDomain Inventory { get; set; }
+        public IWeaponDomain EquippedWeapon => Inventory.EquippedWeapon();
+        public string EquippedWeaponName => EquippedWeapon.Data.Name;
+        public DamageType DmgType => EquippedWeapon.WpnData.DmgType;
+        public int MaxRange => Inventory.MaxWeaponRange;
+        public int MinRange => Inventory.MinWeaponRange;
+        public int Attack => Strength + EquippedWeapon.WpnData.Might;
     }
 }

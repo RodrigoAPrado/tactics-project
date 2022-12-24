@@ -1,5 +1,6 @@
-namespace Tactics.Domain.Interface.Item.Data {    
+namespace Tactics.Domain.Interface.Item.Data {   
     public interface IItemData {
+        ItemCode ItemCode { get; }
         string Name { get; }
         ItemType Type { get; }
         int Uses { get; }

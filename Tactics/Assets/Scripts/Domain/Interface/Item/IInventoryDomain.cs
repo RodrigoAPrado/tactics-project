@@ -7,11 +7,14 @@ namespace Tactics.Domain.Interface.Item {
     public interface IInventoryDomain {
         Guid Id { get; }
         IItemDomain[] Items { get; }
-        bool HasWeapon { get; }
+        IWeaponDomain[] Weapons { get; }
         bool IsEmpty { get; }
         bool IsFull { get; }
+        bool IsEquipped { get; }
+        int MinWeaponRange { get; }
+        int MaxWeaponRange { get; }
         bool AddItem (IItemDomain item);
-        bool EquipWeapon(IWeaponDomain wpn);
+        bool EquipWeapon (IWeaponDomain weaponToEquip);
         bool UnequipWeapon();
         void RearrangeItem (int pos1, int pos2);
         void DropItem(int pos);

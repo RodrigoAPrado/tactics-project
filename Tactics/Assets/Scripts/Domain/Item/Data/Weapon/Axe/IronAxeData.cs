@@ -16,9 +16,8 @@ namespace Tactics.Domain.Item.Data.Weapon.Axe {
             }
         }
 
-        public override WeaponCode WpnCode => WeaponCode.Iron_Axe;
+        public override ItemCode ItemCode => ItemCode.Iron_Axe;
         public override DamageType DmgType => DamageType.Physical;
-        public override ItemType Type => ItemType.Weapon;
         public override int Uses => 50;
         public override int PricePerUse => 8;
         public override WeaponType WpnType => WeaponType.Axe;

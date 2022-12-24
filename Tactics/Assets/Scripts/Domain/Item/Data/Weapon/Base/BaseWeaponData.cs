@@ -3,10 +3,10 @@ using Tactics.Domain.Interface.Item.Data;
 namespace Tactics.Domain.Item.Data.Weapon.Base {
 
     public abstract class BaseWeaponData : IWeaponData {
-        public string Name => WpnCode.ToString().Replace("_", " ");
+        public string Name => ItemCode.ToString().Replace("_", " ");
 
-        public abstract WeaponCode WpnCode { get; }
-        public abstract ItemType Type { get; }
+        public abstract ItemCode ItemCode { get; }
+        public ItemType Type  => ItemType.Weapon;
         public abstract DamageType DmgType { get; }
         public abstract int Uses { get; }
         public abstract int PricePerUse { get; }

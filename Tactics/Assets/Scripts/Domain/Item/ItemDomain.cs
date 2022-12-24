@@ -14,10 +14,10 @@ namespace Tactics.Domain.Item {
         public bool Broken => CurrentUses <= 0;
         public IItemData Data { get; }
 
-        public ItemDomain(IItemData data, Guid id, int timesUsed, bool droppable,
+        public ItemDomain(IItemData data, int timesUsed, bool droppable,
         bool stealable) {
             Data = data;
-            Id = id;
+            Id = Guid.NewGuid();
             TimesUsed = timesUsed;
             Droppable = droppable;
             Stealable = stealable;

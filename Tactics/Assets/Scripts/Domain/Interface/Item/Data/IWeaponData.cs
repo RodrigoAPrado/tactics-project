@@ -2,7 +2,6 @@ using Tactics.Domain.Interface.Unit;
 
 namespace Tactics.Domain.Interface.Item.Data {
     public interface IWeaponData : IItemData {
-        WeaponCode WpnCode { get; }
         WeaponType WpnType { get; }
         DamageType DmgType { get; }
         WeaponRank WpnRank { get; }

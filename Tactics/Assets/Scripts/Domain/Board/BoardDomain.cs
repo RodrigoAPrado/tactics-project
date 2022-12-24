@@ -17,7 +17,7 @@ namespace Tactics.Domain.Board {
         public IUnitDomain SelectedUnit { get; private set; }
         public bool CanUnitAttack { 
             get {
-                var range = SelectedUnit.AttackRange;
+                //var range = SelectedUnit.AttackRange;
                 var leftTile = GetTileOnPosition(SelectedUnit.TileBelowUnit.Position.X-1, SelectedUnit.TileBelowUnit.Position.Y);
                 var rightTile = GetTileOnPosition(SelectedUnit.TileBelowUnit.Position.X+1, SelectedUnit.TileBelowUnit.Position.Y);
                 var upTile = GetTileOnPosition(SelectedUnit.TileBelowUnit.Position.X, SelectedUnit.TileBelowUnit.Position.Y+1);

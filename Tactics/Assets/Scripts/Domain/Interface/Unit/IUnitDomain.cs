@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Tactics.Domain.Interface.Board;
 using Tactics.Domain.Interface.Item.Data;
+using Tactics.Domain.Interface.Item;
 
 namespace Tactics.Domain.Interface.Unit {
     public interface IUnitDomain {
@@ -37,12 +38,13 @@ namespace Tactics.Domain.Interface.Unit {
         void AddListener(Action action);
         //TODO: Add status condition;
 
+        IInventoryDomain Inventory { get; }
+        IWeaponDomain EquippedWeapon { get; }
+        string EquippedWeaponName { get; }
         DamageType DmgType { get; }
-        int AttackRange { get; }
+        int MaxRange { get; }
+        int MinRange { get; }
         int Attack { get; }
-    }
-
-    public class IUnitInventory {
     }
 
     public class IUnitInventoryItem {

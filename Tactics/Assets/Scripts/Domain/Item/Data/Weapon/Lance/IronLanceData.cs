@@ -1,7 +1,7 @@
 using Tactics.Domain.Interface.Item.Data;
 using Tactics.Domain.Item.Data.Weapon.Base;
 
-namespace Tactics.Domain.Item.Data.Weapon.Bow {
+namespace Tactics.Domain.Item.Data.Weapon.Lance {
 
     public class IronLanceData : BaseWeaponData {
 
@@ -16,9 +16,8 @@ namespace Tactics.Domain.Item.Data.Weapon.Bow {
             }
         }
 
-        public override WeaponCode WpnCode => WeaponCode.Iron_Lance;
+        public override ItemCode ItemCode => ItemCode.Iron_Lance;
         public override DamageType DmgType => DamageType.Physical;
-        public override ItemType Type => ItemType.Weapon;
         public override int Uses => 50;
         public override int PricePerUse => 12;
         public override WeaponType WpnType => WeaponType.Lance;

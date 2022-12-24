@@ -67,7 +67,7 @@ namespace Tactics.Controller {
             LevelNumber.SetText(unit.Level.ToString());
             UnitName.SetText(unit.Name);
             HP.SetText(unit.CurrentHitPoints.ToString() + "/<color=\"green\">"+unit.MaxHitPoints.ToString()+"</color>");
-            WeaponName.SetText("Iron Sword");
+            WeaponName.SetText(unit.EquippedWeaponName);
             Background.color = UnitColors[(int) unit.ArmyType];
             gameObject.SetActive(true);
         }
