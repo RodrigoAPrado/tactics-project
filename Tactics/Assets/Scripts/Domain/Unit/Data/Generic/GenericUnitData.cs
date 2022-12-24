@@ -88,7 +88,11 @@ namespace Tactics.Domain.Unit.Data.Generic {
         }
 
         public int GetWeaponExpByType(WeaponType type) {
-            return GainedWeaponExp.ContainsKey(type) ? BaseWeaponExp[type] + GainedWeaponExp[type] : BaseWeaponExp[type];
+            return GainedWeaponExp.ContainsKey(type) ? GetBaseWeaponExpByType(type) + GainedWeaponExp[type] : GetBaseWeaponExpByType(type);
+        }
+
+        private int GetBaseWeaponExpByType(WeaponType type) {
+            return BaseWeaponExp.ContainsKey(type) ? BaseWeaponExp[type] : 0;
         }
     }
 }

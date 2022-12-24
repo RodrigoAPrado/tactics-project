@@ -43,6 +43,7 @@ namespace Tactics.Domain.Interface.Item.Data {
 
     public enum DamageType {
         Physical = 0,
-        Magical = 1
+        Magical = 1,
+        None = 2
     }
 }

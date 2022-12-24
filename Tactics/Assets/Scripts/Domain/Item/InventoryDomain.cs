@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Tactics.Domain.Interface.Item.Data;
 using Tactics.Domain.Interface.Item;
 using Tactics.Domain.Item.Data.Weapon.Sword;
+using Tactics.Domain.Interface.Unit;
 
 namespace Tactics.Domain.Item {
 
@@ -14,7 +15,7 @@ namespace Tactics.Domain.Item {
             get {
                 var weapons = new List<IWeaponDomain>();
                 foreach(var item in Items) {
-                    if(item.Data.Type == ItemType.Weapon) {
+                    if(item?.Data.Type == ItemType.Weapon) {
                         weapons.Add((IWeaponDomain) item);
                     }
                 }
@@ -73,8 +74,14 @@ namespace Tactics.Domain.Item {
 
         private IWeaponDomain _equippedWeapon { get; set; }
 
+        private IUnitDomain Owner { get; set; }
+
         public InventoryDomain() {
             GenerateEmptyItems();
+        }
+
+        public void Init(IUnitDomain owner) {
+            Owner = owner;
         }
 
         private void GenerateEmptyItems() {
@@ -106,9 +113,18 @@ namespace Tactics.Domain.Item {
 
         public bool EquipFirstAvailableWeapon() {
             var weapons = Weapons;
-            if(weapons.Length > 0)
-                return EquipWeapon(0);
+            if(weapons.Length > 0) {
+                for(int i = 0; i < weapons.Length; i++) {
+                    if(CanEquipWeapon(weapons[i]))
+                        return EquipWeapon(i);
+                }
+            }
             return false;
+        }
+
+        public bool CanEquipWeapon(IWeaponDomain weapon) {
+            var wpnExp = Owner.GetWeaponExpByType(weapon.WpnData.WpnType);
+            return wpnExp >= (int) weapon.WpnData.WpnRank;
         }
 
         private int FindItemIndex(IItemDomain itemDomain) {

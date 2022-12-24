@@ -33,12 +33,18 @@ namespace Tactics.Service.Model {
         public Dictionary<WeaponType, int> weaponExp { get;set; }
         public int level { get; set; }
         public int exp { get; set; }
+        public bool equipped { get; set; }
         public ItemModel[] inventory { get; set; }
 
         public IUnitDomain ToDomain(IBoardDomain board) {
             var data = UnitDataDomainFactory.CreateUnitDataByType(armyId, armyType,
             unitResource, unitClass, affinity, gainedStats.ToDomain(), weaponExp, level, exp);
-            return new UnitDomain(data, board.GetTileOnPosition(startingPosition.x, startingPosition.y), BuildInventoryDomain());
+            var domain = new UnitDomain(data, board.GetTileOnPosition(startingPosition.x, startingPosition.y), BuildInventoryDomain());
+
+            if(equipped)
+                domain.Inventory.EquipFirstAvailableWeapon();
+
+            return domain;
         }
 
         private IInventoryDomain BuildInventoryDomain() {

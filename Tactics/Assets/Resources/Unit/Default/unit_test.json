@@ -25,7 +25,14 @@
             },
             "level" : 3,
             "exp" : 0,
+            "equipped" : true,
             "inventory" : [
+                {
+                    "itemCode": 2,
+                    "timesUsed": 0,
+                    "droppable": false,
+                    "stealable": false
+                },
                 {
                     "itemCode": 0,
                     "timesUsed": 0,
@@ -59,6 +66,7 @@
             },
             "level" : 6,
             "exp" : 0,
+            "equipped" : true,
             "inventory" : [
             ]
         },
@@ -87,7 +95,14 @@
             },
             "level" : 2,
             "exp" : 0,
+            "equipped" : true,
             "inventory" : [
+                {
+                    "itemCode": 2,
+                    "timesUsed": 0,
+                    "droppable": false,
+                    "stealable": false
+                },
                 {
                     "itemCode": 0,
                     "timesUsed": 0,

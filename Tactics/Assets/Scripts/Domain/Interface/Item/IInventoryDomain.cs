@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Tactics.Domain.Interface.Item.Data;
+using Tactics.Domain.Interface.Unit;
 
 namespace Tactics.Domain.Interface.Item {
 
@@ -13,8 +14,11 @@ namespace Tactics.Domain.Interface.Item {
         bool IsEquipped { get; }
         int MinWeaponRange { get; }
         int MaxWeaponRange { get; }
+        void Init(IUnitDomain owner);
         bool AddItem (IItemDomain item);
         bool EquipWeapon (IWeaponDomain weaponToEquip);
+        bool EquipFirstAvailableWeapon();
+        bool CanEquipWeapon(IWeaponDomain weapon);
         bool UnequipWeapon();
         void RearrangeItem (int pos1, int pos2);
         void DropItem(int pos);

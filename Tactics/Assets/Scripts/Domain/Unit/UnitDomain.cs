@@ -35,6 +35,7 @@ namespace Tactics.Domain.Unit{
             Id = Guid.NewGuid();
             UnitData = unitData;
             Inventory = inventory;
+            Inventory.Init(this);
             CurrentState = UnitState.Ready;
             TileBelowUnit = tileBelowUnit;
             TileBelowUnit.AddUnitOnTile(this);
@@ -76,10 +77,10 @@ namespace Tactics.Domain.Unit{
 
         public IInventoryDomain Inventory { get; set; }
         public IWeaponDomain EquippedWeapon => Inventory.EquippedWeapon();
-        public string EquippedWeaponName => EquippedWeapon.Data.Name;
-        public DamageType DmgType => EquippedWeapon.WpnData.DmgType;
+        public string EquippedWeaponName => EquippedWeapon?.Data.Name ?? "";
+        public DamageType DmgType => EquippedWeapon == null ? DamageType.None : EquippedWeapon.WpnData.DmgType;
         public int MaxRange => Inventory.MaxWeaponRange;
         public int MinRange => Inventory.MinWeaponRange;
-        public int Attack => Strength + EquippedWeapon.WpnData.Might;
+        public int Attack => Strength + ((EquippedWeapon?.WpnData.Might) ?? 0);
     }
 }
