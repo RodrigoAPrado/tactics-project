@@ -26,7 +26,7 @@ namespace Tactics.Manager.GameState {
             Context.Board.HideSelector();
             Context.Board.ClearHighlights();
             if(Path.Count == 1) {
-                GameStateManager.Replace(new UnitMenuGameState(Context, GameStateManager, Unit, Tiles, Path[Path.Count-1]));
+                GameStateManager.Replace(new PrepareActionTilesGameState(Context, GameStateManager, Unit, Path[Path.Count-1]));
             }
             MoveUnit(Path.Count - 2);
             return this;
@@ -34,7 +34,7 @@ namespace Tactics.Manager.GameState {
 
         private void MoveUnit(int pathTargetIndex) {
             if(pathTargetIndex < 0) {
-                GameStateManager.Replace(new UnitMenuGameState(Context, GameStateManager, Unit, Tiles, Path[Path.Count-1]));
+                GameStateManager.Replace(new PrepareActionTilesGameState(Context, GameStateManager, Unit, Path[Path.Count-1]));
                 return;
             }
             Context.Camera.MoveCamTo(new Vector2(Path[pathTargetIndex].Position.X, Path[pathTargetIndex].Position.Y));

@@ -23,6 +23,7 @@ namespace Tactics.Domain.Interface.Board
         ITileDomain GetTileById(Guid id);
         void SelectUnit(IUnitDomain unit);
         void UnselectUnit();
+       // void AddActionTiles(Dictionary<int, IActionTiles> actionTiles);
     }
 
     public interface ITileRowDomain {
@@ -61,5 +62,11 @@ namespace Tactics.Domain.Interface.Board
         CanStay = 0,
         OnlyWalkable = 1,
         Blocked = 2
+    }
+
+    public interface IActionTiles {
+        Guid TileId { get; }
+        ITileDomain Domain { get; }
+        int Range { get; }
     }
 }

@@ -12,14 +12,14 @@ namespace Tactics.Manager.GameState {
     public class UnitMenuGameState : BaseGameState {
         public override UnitModalState ModalState => UnitModalState.DontShow;
         private IUnitDomain Unit { get; set; }
-        private List<AvailableTile> Tiles { get; set; }
         private ITileDomain InitialTile { get; set; }
+        //private Dictionary<int, ActionTile> Tiles { get; set; }
 
-        public UnitMenuGameState(GameMapSceneContext context, GameStateManager gameStateManager, IUnitDomain unit, List<AvailableTile> tiles, ITileDomain initialTile) : base(context, gameStateManager)
+        public UnitMenuGameState(GameMapSceneContext context, GameStateManager gameStateManager, IUnitDomain unit, /*Dictionary<int, ActionTile> tiles,*/ ITileDomain initialTile) : base(context, gameStateManager)
         {
             Unit = unit;
-            Tiles = tiles;
             InitialTile = initialTile;
+            //Tiles = tiles;
         }
 
         public override BaseGameState Init()

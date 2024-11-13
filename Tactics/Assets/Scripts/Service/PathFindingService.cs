@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using Tactics.Domain.Interface.Board;
 using Tactics.Domain.Interface.Unit;
+using Tactics.Domain.Board;
 
 namespace Tactics.Service {
     public class PathFindingService {
@@ -31,7 +32,7 @@ namespace Tactics.Service {
                 if(availableTiles[i].Obsolete)
                     continue;
                 var remainingMove = availableTiles[i].RemainingMove;
-                foreach(var adjacentTile in FindAdjacentTiles(availableTiles[i], board)) {
+                foreach(var adjacentTile in FindAdjacentTiles(availableTiles[i].Position, board)) {
                     if(adjacentTile == null)
                         continue;
 
@@ -57,14 +58,37 @@ namespace Tactics.Service {
             return availableTiles.Where(o => !o.Obsolete).ToList();
         }
 
-        private ITileDomain[] FindAdjacentTiles(AvailableTile tile, IBoardDomain board) {
-            var leftTile = board.GetTileOnPosition(tile.Position.X-1, tile.Position.Y);
-            var upTile = board.GetTileOnPosition(tile.Position.X, tile.Position.Y+1);
-            var rightTile = board.GetTileOnPosition(tile.Position.X+1, tile.Position.Y);
-            var downTile = board.GetTileOnPosition(tile.Position.X, tile.Position.Y-1);
+        private ITileDomain[] FindAdjacentTiles(ITilePosition position, IBoardDomain board) {
+            var leftTile = board.GetTileOnPosition(position.X-1, position.Y);
+            var upTile = board.GetTileOnPosition(position.X, position.Y+1);
+            var rightTile = board.GetTileOnPosition(position.X+1, position.Y);
+            var downTile = board.GetTileOnPosition(position.X, position.Y-1);
 
-            ITileDomain[] adjacentTiles = {leftTile, upTile, rightTile, downTile};
-            return adjacentTiles;
+            return new ITileDomain[] { leftTile, upTile, rightTile, downTile };
+        }
+
+        public Dictionary<int, ActionTile> GetActionTiles(IUnitDomain unit, IBoardDomain board) {
+            var actionTiles = new List<ActionTile>();
+            var tile = unit.TileBelowUnit;
+            var maxRange = unit.MaxRange;
+
+            actionTiles.Add(new ActionTile(tile.Id, tile, 0));
+
+            for(int i = 0; i < actionTiles.Count; i++) {
+                if(actionTiles[i].Range >= unit.MaxRange)
+                    continue;
+                foreach(var adjacentTile in FindAdjacentTiles(actionTiles[i].Domain.Position, board)) {
+                    if(adjacentTile == null)
+                        continue;
+
+                    var tileAlreadyAdded = actionTiles.Find(o => o.TileId == adjacentTile.Id);
+
+                    if(tileAlreadyAdded == null) {
+                        actionTiles.Add(new ActionTile(adjacentTile.Id, adjacentTile, actionTiles[i].Range + 1));
+                    }
+                }
+            }
+            return actionTiles.ToDictionary(o => o.Range, o => o);
         }
     }
 

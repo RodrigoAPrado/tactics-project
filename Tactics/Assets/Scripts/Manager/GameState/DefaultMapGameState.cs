@@ -40,7 +40,7 @@ namespace Tactics.Manager.GameState {
                         //TODO: Mesma coisa que selecionar bloco vazio;
                     break;
                     case ArmyType.Other:
-                        //TODO: kMesma coisa que selecionar bloco vazio;
+                        //TODO: Mesma coisa que selecionar bloco vazio;
                     break;
                 }
             }

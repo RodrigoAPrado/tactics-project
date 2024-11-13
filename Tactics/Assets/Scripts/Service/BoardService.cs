@@ -13,9 +13,7 @@ namespace Tactics.Service {
         private static BoardService _instance;
         public static BoardService Instance {
             get {
-                if(_instance == null) {
-                    _instance = new BoardService();
-                }
+                _instance ??= new BoardService();
                 return _instance;
             }
         }

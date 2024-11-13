@@ -28,7 +28,7 @@
             "equipped" : true,
             "inventory" : [
                 {
-                    "itemCode": 2,
+                    "itemCode": 3,
                     "timesUsed": 0,
                     "droppable": false,
                     "stealable": false

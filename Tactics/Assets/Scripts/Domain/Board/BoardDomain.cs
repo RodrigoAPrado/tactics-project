@@ -52,6 +52,8 @@ namespace Tactics.Domain.Board {
             }
         }
 
+        private Dictionary<int, IActionTiles> ActionTiles { get; set; }
+
         public BoardDomain(List<ITileRowDomain> boardRow) {
             _boardRow = boardRow;
             ValidateBoard();
@@ -142,6 +144,11 @@ namespace Tactics.Domain.Board {
         }
         public void UnselectUnit() {
             SelectedUnit = null;
+            ActionTiles = null;
+        }
+        
+        void AddActionTiles(Dictionary<int, IActionTiles> actionTiles) {
+            ActionTiles = actionTiles;
         }
     }
 
@@ -229,6 +236,18 @@ namespace Tactics.Domain.Board {
 
         public static ITileMoveInteractionResult GetBlockedTile() {
             return new TileMoveInteractionResult(TileMoveInteraction.Blocked, 0);
+        }
+    }
+
+    public class ActionTile : IActionTiles {
+        public Guid TileId { get; private set; }
+        public ITileDomain Domain { get; private set; }
+        public int Range { get; private set; }
+
+        public ActionTile(Guid tileId, ITileDomain domain, int range) {
+            TileId = tileId;
+            Domain = domain;
+            Range = range;
         }
     }
 }
