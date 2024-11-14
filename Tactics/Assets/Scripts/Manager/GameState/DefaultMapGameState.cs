@@ -45,6 +45,14 @@ namespace Tactics.Manager.GameState {
                 }
             }
         }
+        
+        public override void OnHelp() {
+            var selectedUnit = Context.Board.UnitOnSelectedTile();
+            if (selectedUnit != null)
+            {
+                GameStateManager.Push(new StatsWindowState(Context, GameStateManager).Init());
+            }
+        }
 
         public override void OnMapMenu()
         {
