@@ -25,6 +25,7 @@ namespace Tactics.Domain.Interface.Unit {
         int Constitution { get; }
         Affinity Affinity { get; }
         ArmyType ArmyType { get; }
+        string ClassName { get; }
 
         UnitState CurrentState { get; }
         ITileDomain TileBelowUnit { get; }

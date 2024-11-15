@@ -26,6 +26,7 @@ namespace Tactics.Domain.Unit{
         public int Constitution => UnitData.Constitution;
         public Affinity Affinity => UnitData.UnitAffinity;
         public ArmyType ArmyType => UnitData.UnitArmyType;
+        public string ClassName => UnitData.UnitClass.ToString();
         public UnitState CurrentState { get; private set; }
         public ITileDomain TileBelowUnit { get; private set; }
         private IUnitData UnitData { get; }

@@ -11,7 +11,7 @@ namespace Tactics.Manager.GameState
 
         public override BaseGameState Init()
         {
-            Context.StatsWindow.Show(Context.Board.SelectedUnit);
+            Context.StatsWindow.Show(Context.Board.SelectedTile.UnitOnTile);
             return this;
         }
 
